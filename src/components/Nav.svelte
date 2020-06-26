@@ -52,6 +52,8 @@
 <nav>
 	<ul>
 		<li><a class:active={$isActive('/index')} href="{$url('/index')}">home</a></li>
+		<li><a class:active={$isActive('/about')} href="{$url('./profile')}">profile</a></li>
+		<li><a class:active={$isActive('/about')} href="{$url('./upload')}">Upload</a></li>
 		<li><a class:active={$isActive('/about')} href="{$url('./about')}">about</a></li>
 
 	</ul>
