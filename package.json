@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "run-p routify rollup",
-    "ngdev": "run-p -n -l routify ngrok",
-    "ngrok": "ngrok http --log stdout 5000",
+    "ngdev": "run-p -n -l routify rollup ngrok",
+    "ngrok": "sleep 1 && ngrok http 5000 --log stdout",
     "dev:nollup": "run-p routify nollup",
     "dev-dynamic": "cross-env BUNDLING=dynamic npm run dev",
     "build": "npm run build:tailwind && npm run routify -- -b && rollup -c",

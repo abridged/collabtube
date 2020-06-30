@@ -1,7 +1,7 @@
 <script>
   import { onMount } from "svelte";
 	import ethers from "ethers";
-	import { AppStore } from "../../AppStore";
+	import { user } from "../../AppStore";
 
   let show = false;
 	let account = null;
@@ -15,9 +15,7 @@
 					account = accounts.length > 0 ? accounts[0] : null;
 					if(!account) noAccount= true;
 
-					console.log('AppStore', AppStore);
-
-					AppStore.update(obj => ({account: account}));
+					user.update(obj => ({account: account}));
       });
       show = true;
   }

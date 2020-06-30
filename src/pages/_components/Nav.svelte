@@ -1,6 +1,6 @@
 <script>
   import { isActive, url } from "@sveltech/routify";
-  import { AppStore } from "../../AppStore";
+  import { user } from "../../AppStore";
 </script>
 
 <style>
@@ -50,7 +50,7 @@
 </style>
 
 <nav>
-  <div class="float-right text-center">Account:<br/>{$AppStore.account}</div>
+  <div class="float-right text-center">Account:<br/>{$user.account}</div>
   <ul>
     <li>
       <a class:active={$isActive('/index')} href={$url('/index')}>home</a>

@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
 
-export const AppStore = writable( {
-    account: null
+export const user = writable( {
+    address: null
 } );
