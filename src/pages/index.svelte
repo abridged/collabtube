@@ -1,50 +1,35 @@
 <style>
-  h1,
-  figure,
-  p {
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  h2 {
-    font-size: 2.8em;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0 0 0.5em 0;
-  }
-
-  figure {
-    margin: 0 0 1em 0;
-  }
-
-  p {
-    margin: 1em auto;
-  }
-
-  @media (min-width: 480px) {
-    h1 {
-      font-size: 4em;
-    }
-  }
 </style>
 
 <script>
+import { metatags } from '@sveltech/routify';
+import Post from './_components/posts/Post.svelte';
+import { fade, fly } from 'svelte/transition';
 
+import { goto } from '@sveltech/routify'
+  import Button from "smelte/src/components/Button";
+  import Icon from "smelte/src/components/Icon";
+
+metatags.title = "home";
+
+const data = [{ title: 'ASMR preview video', id: '123', cost: ''}];
 </script>
 
-<svelte:head>
-  <title>Sapper project template</title>
-</svelte:head>
+<h2 class="ml text-gray-800 uppercase font-bold mb-4 mx-auto text-center">Sugar Boogerz</h2>
 
-<h1 class="text-gray-800 uppercase font-bold mb-4">Great success!</h1>
 
-<figure class="items-center w-full">
-  <img class="max-w-xl m-auto w-4/5" alt="Success Kid" src="//placekitten.com/200/300" />
-  <figcaption>Have fun with Sapper!</figcaption>
-</figure>
+<section class="text-gray-700 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-wrap -m-4">
+    {#each [1,2,3] as index}
+      <div class="flex-initial m-5" 
+        in:fly="{{ y: 200, duration: index*300, delay: index*300 }}" >
+        <Post/>
+      </div>
+     {/each}
+  
+  <div class="py-2 fixed right-0 bottom-0 m-8">
+    <Button on:click="{()=>$goto('/upload')}" color="alert" icon="change_history" />
+  </div>
+</section>
 
-<p>
-  <strong>
-    Try editing this file (src/routes/index.svelte) to test live reloading.
-  </strong>
-</p>

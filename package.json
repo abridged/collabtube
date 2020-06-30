@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "run-p routify rollup",
+    "ngdev": "run-p -n -l routify ngrok",
+    "ngrok": "ngrok http --log stdout 5000",
     "dev:nollup": "run-p routify nollup",
     "dev-dynamic": "cross-env BUNDLING=dynamic npm run dev",
     "build": "npm run build:tailwind && npm run routify -- -b && rollup -c",
@@ -42,6 +44,7 @@
     "ethers": "^5.0.2",
     "postcss-cli": "^7.1.1",
     "rollup-plugin-workbox": "^5.0.1",
+    "smelte": "^1.0.13",
     "svelte": "^3.23.2",
     "tailwindcss": "^1.4.6",
     "workbox": "0.0.0"

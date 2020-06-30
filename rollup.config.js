@@ -9,6 +9,7 @@ import del from 'del'
 import replace from '@rollup/plugin-replace';
 import { injectManifest } from 'rollup-plugin-workbox'
 import { spassr } from 'spassr'
+const smelte=require("smelte/rollup-plugin-smelte");
 
 const isNollup = !!process.env.NOLLUP
 const production = !process.env.ROLLUP_WATCH;
@@ -64,7 +65,30 @@ const baseConfig = () => ({
     production && terser(), // minify
     !production && isNollup && Hmr({ inMemory: true, public: staticDir, }), // refresh only updated code
     !production && !isNollup && livereload(distDir), // refresh entire window when code is updated
-    !production && !isNollup && serve()
+    !production && !isNollup && serve(),
+
+    // Smelte
+    smelte({ 
+      purge: production,
+      output: "static/global.css", // it defaults to static/global.css which is probably what you expect in Sapper 
+      postcss: [], // Your PostCSS plugins
+      whitelist: [], // Array of classnames whitelisted from purging
+      whitelistPatterns: [], // Same as above, but list of regexes
+      tailwind: { 
+        colors: { 
+          primary: "#b027b0",
+          secondary: "#009688",
+          error: "#f44336",
+          success: "#4caf50",
+          alert: "#ff9800",
+          blue: "#2196f3",
+          dark: "#212121" 
+        }, // Object of colors to generate a palette from, and then all the utility classes
+        darkMode: true, 
+      }, 
+      // Any other props will be applied on top of default Smelte tailwind.config.js
+    })
+    // ===
   ],
   watch: {
     clearScreen: false,
