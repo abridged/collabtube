@@ -23,7 +23,8 @@
   // background-color: gray;
   let _vanta = null;
   onMount(async () => {
-    _vanta = VANTA.WAVES({
+    if(!window.VANTA) return;
+    _vanta = window.VANTA.WAVES({
       el: "#main",
       mouseControls: false,
       touchControls: true,

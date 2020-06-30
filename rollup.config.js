@@ -23,6 +23,7 @@ const buildDir = `${distDir}/build`
 const buildStaticExports = process.env.PRERENDER !== "false" && !!production
 const useDynamicImports = process.env.BUNDLING === 'dynamic' || isNollup || !!production
 
+console.log('Production mode:', production);
 
 del.sync(distDir + '/**') // clear previous builds
 
@@ -39,7 +40,7 @@ const baseConfig = () => ({
     copy({
       targets: [
         { src: [`${staticDir}/*`, "!*/(__index.html)"], dest: distDir },
-        { src: [`${staticDir}/__index.html`], dest: distDir, rename: '__app.html', transform },
+        { src: [`${staticDir}/__index.html`], dest: distDir, rename: '__app.html', transform }
       ],
       copyOnce: true,
       flatten: false
@@ -52,6 +53,33 @@ const baseConfig = () => ({
       },
       hot: isNollup,
     }),
+
+        // Smelte
+        smelte({ 
+          purge: {
+            enabled: production,
+            content: ["./src/**/*.html", "./src/**/*.svelte"],
+          },
+          output: "static/global.css", // it defaults to static/global.css which is probably what you expect in Sapper 
+          postcss: [], // Your PostCSS plugins
+          whitelist: [], // Array of classnames whitelisted from purging
+          whitelistPatterns: [], // Same as above, but list of regexes
+          tailwind: { 
+            colors: { 
+              primary: "#b027b0",
+              secondary: "#009688",
+              error: "#f44336",
+              success: "#4caf50",
+              alert: "#ff9800",
+              blue: "#2196f3",
+              dark: "#212121" 
+            }, // Object of colors to generate a palette from, and then all the utility classes
+            darkMode: true, 
+          }, 
+          // Any other props will be applied on top of default Smelte tailwind.config.js
+        }),
+        // ===
+
 
     // resolve matching modules from current working directory
     resolve({
@@ -66,29 +94,6 @@ const baseConfig = () => ({
     !production && isNollup && Hmr({ inMemory: true, public: staticDir, }), // refresh only updated code
     !production && !isNollup && livereload(distDir), // refresh entire window when code is updated
     !production && !isNollup && serve(),
-
-    // Smelte
-    smelte({ 
-      purge: production,
-      output: "static/global.css", // it defaults to static/global.css which is probably what you expect in Sapper 
-      postcss: [], // Your PostCSS plugins
-      whitelist: [], // Array of classnames whitelisted from purging
-      whitelistPatterns: [], // Same as above, but list of regexes
-      tailwind: { 
-        colors: { 
-          primary: "#b027b0",
-          secondary: "#009688",
-          error: "#f44336",
-          success: "#4caf50",
-          alert: "#ff9800",
-          blue: "#2196f3",
-          dark: "#212121" 
-        }, // Object of colors to generate a palette from, and then all the utility classes
-        darkMode: true, 
-      }, 
-      // Any other props will be applied on top of default Smelte tailwind.config.js
-    })
-    // ===
   ],
   watch: {
     clearScreen: false,

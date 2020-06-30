@@ -8,17 +8,25 @@
 	let noAccount = false;
 
   async function onload() {
-      await window.ethereum.enable();
+    if(show) return;
+    if(!window.ethereum && !window.web3) return;
+    show = true;
+    console.log('ethers compy');
+		// return;
+      if(window.ethereum && window.ethereum.enable) await window.ethereum.enable();
 
-      web3.eth.getAccounts( (error, accounts) => {
+      window.web3.eth.getAccounts( (error, accounts) => {
           console.log(accounts)
 					account = accounts.length > 0 ? accounts[0] : null;
 					if(!account) noAccount= true;
 
 					user.update(obj => ({account: account}));
       });
-      show = true;
   }
+
+  onMount(x => {
+    onload();
+  });
 </script>
 
 <svelte:window on:load="{onload}"/>
