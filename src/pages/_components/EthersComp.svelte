@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-	import ethers from "ethers";
+	// import ethers from "ethers";
 	import { user } from "../../AppStore";
 
   let show = false;

@@ -7,7 +7,7 @@
     "ngrok": "sleep 1 && ngrok http 5000 --log stdout",
     "dev:nollup": "run-p routify nollup",
     "dev-dynamic": "cross-env BUNDLING=dynamic npm run dev",
-    "build": "npm run build:tailwind && npm run routify -- -b && sleep 10 && rollup -c",
+    "build": "npm run build:tailwind && npm run routify -- -b && rollup -c",
     "serve": "spassr --serve-spa --serve-ssr",
     "export": "routify export && cp dist/__app.html dist/404.html",
     "build:docker": "npm run build && ./scripts/docker/docker-build.sh",
@@ -46,7 +46,6 @@
     "ethers": "^5.0.2",
     "postcss-cli": "^7.1.1",
     "rollup-plugin-workbox": "^5.0.1",
-    "smelte": "^1.0.13",
     "svelte": "^3.23.2",
     "tailwindcss": "^1.4.6",
     "workbox": "0.0.0"
