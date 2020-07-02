@@ -7,8 +7,7 @@ import Post from './_components/posts/Post.svelte';
 import { fade, fly } from 'svelte/transition';
 
 import { goto } from '@sveltech/routify'
-  import Button from "smelte/src/components/Button";
-  import Icon from "smelte/src/components/Icon";
+// import Button from "smelte/src/components/Button";
 
 metatags.title = "home";
 
@@ -20,7 +19,7 @@ const data = [{ title: 'ASMR preview video', id: '123', cost: ''}];
 
 <section class="text-gray-700 body-font">
   <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap -m-4">
+    <div class="flex flex-wrap -m-4 justify-center items-center">
     {#each [1,2,3] as index}
       <div class="flex-initial m-5" 
         in:fly="{{ y: 200, duration: index*300, delay: index*300 }}" >
@@ -29,7 +28,10 @@ const data = [{ title: 'ASMR preview video', id: '123', cost: ''}];
      {/each}
   
   <div class="py-2 fixed right-0 bottom-0 m-8">
-    <Button on:click="{()=>$goto('/upload')}" color="alert" icon="change_history" />
+    <button class="mdc-fab" aria-label="Favorite" on:click="{()=>$goto('/upload')}" >
+      <div class="mdc-fab__ripple"></div>
+      <span class="mdc-fab__icon material-icons">publish</span>
+    </button>
   </div>
 </section>
 

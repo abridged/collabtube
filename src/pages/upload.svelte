@@ -1,7 +1,5 @@
 <script>
   import { metatags } from "@sveltech/routify";
-  import TextField from "smelte/src/components/TextField";
-  import Button from "smelte/src/components/Button";
 
   metatags.title = "upload";
 </script>
@@ -50,13 +48,13 @@
 <br />
 
 <h6 class="mb-3 mt-6">Title</h6>
-<TextField label="Test label" />
+<input label="Test label" />
 
 <h6 class="mb-3 mt-6">Description</h6>
-<TextField label="Test label" textarea=true/>
+<input label="Test label" textarea=true/>
 
 <h6 class="mb-3 mt-6">Token cost</h6>
-<TextField label="Test label" />
+<input label="Test label" />
 
 <div class="flex">
 <input
@@ -77,5 +75,5 @@
 </div>
 
 <div class="py-2 py-12">
-  <Button color="alert" dark block>Submit</Button>
+   <button class="mdc-button mdc-button--raised mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span> Submit</button>
 </div>
