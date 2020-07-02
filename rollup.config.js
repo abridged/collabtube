@@ -19,9 +19,8 @@ const production = !process.env.ROLLUP_WATCH;
 const staticDir = 'static'
 const distDir = 'dist'
 const buildDir = `${distDir}/build`
-const buildStaticExports = process.env.PRERENDER !== "false" && !!production
 const useDynamicImports = process.env.BUNDLING === 'dynamic' || isNollup || !!production
-
+const buildStaticExports = process.env.PRERENDER !== "false" && !!production && !useDynamicImports
 
 del.sync(distDir + '/**') // clear previous builds
 

@@ -19,11 +19,8 @@
     });
    }
 
-  // export let segment;
-  // background-color: gray;
-  let _vanta = null;
-  onMount(async () => {
-    if(!window.VANTA || true) return;
+   function onVanta() {
+    if(!window.VANTA || _vanta) return;
     _vanta = window.VANTA.WAVES({
       el: "#main",
       mouseControls: false,
@@ -37,7 +34,12 @@
       color: 0x5a88,
       zoom: 1
     });
-  });
+   }
+
+  // export let segment;
+  // background-color: gray;
+  let _vanta = null;
+  onMount(onVanta);
 
   $afterPageLoad(page => {
     if(!_vanta) return;
@@ -52,6 +54,8 @@
   
 </script>
 
+<svelte:window on:load="{onVanta}"/>
+
 <style>
   #main {
     background-color: #DFDBE5;
@@ -59,11 +63,11 @@
     }
 </style>
 
-<main id="main" class=" p-4 min-h-screen h-full">
-  <div class="w-5/4 px-8 bg-white bg-opacity-50 min-h-full">
+<main id="main" class="sm:p-0 md:p-4 min-h-screen h-full">
+  <div class="sm:w-full md:w-5/4 sm:px-0 md:px-8 bg-white bg-opacity-50 min-h-full">
     <EthersComp>
       <Nav />
-      <slot />
+      <div class="py-2"><slot /></div>
     </EthersComp>
   </div>
 </main>

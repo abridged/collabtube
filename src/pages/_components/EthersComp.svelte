@@ -1,7 +1,8 @@
 <script>
   import { onMount } from "svelte";
 	// import ethers from "ethers";
-	import { user } from "../../AppStore";
+  import { user } from "../../AppStore";
+  import { ready } from '@sveltech/routify';
 
   let show = false;
 	let account = null;
@@ -31,6 +32,4 @@
 
 <svelte:window on:load="{onload}"/>
 
-{#if show}
-    <slot/>
-{/if}
+<slot/>

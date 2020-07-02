@@ -75,5 +75,5 @@
 </div>
 
 <div class="py-2 py-12">
-  <div color="alert" dark block>Submit</div>
+   <button class="mdc-button mdc-button--raised mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span> Submit</button>
 </div>
