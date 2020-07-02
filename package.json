@@ -9,7 +9,7 @@
     "dev-dynamic": "cross-env BUNDLING=dynamic npm run dev",
     "build": "npm run build:tailwind && npm run routify -- -b && rollup -c",
     "serve": "spassr --serve-spa --serve-ssr",
-    "export": "npm run build && routify export && cp dist/__app.html dist/404.html",
+    "export": "routify export && cp dist/__app.html dist/404.html",
     "build:docker": "npm run build && ./scripts/docker/docker-build.sh",
     "deploy:now": "cd scripts/now && npm run deploy",
     "deploy:netlify": "cd scripts/netlify && npm run deploy",

@@ -17,7 +17,7 @@ const data = [{ title: 'ASMR preview video', id: '123', cost: ''}];
 <h1 class="ml text-gray-800 uppercase font-bold mb-4 mx-auto text-center">Sugar Boogerz</h1>
 
 
-<section class="text-gray-700 body-font m-24">
+<section class="text-gray-700 body-font m-4">
   <div class="container px-5 sm:px-0 py-24 mx-auto">
     <div class="flex flex-wrap -m-4 justify-center items-center">
     {#each [1,2,3] as index}
