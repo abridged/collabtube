@@ -1,28 +1,30 @@
 <script>
   import { onMount } from "svelte";
-	// import ethers from "ethers";
+  // import ethers from "ethers";
   import { user } from "../../AppStore";
-  import { ready } from '@sveltech/routify';
+  import { ready } from "@sveltech/routify";
 
   let show = false;
-	let account = null;
-	let noAccount = false;
+  let account = null;
+  let noAccount = false;
 
   async function onload() {
-    if(show) return;
-    if(!window.ethereum && !window.web3) return;
+    if (show) return;
+    if (!window.ethereum) return;
+    window.ethereum.autoRefreshOnNetworkChange = false;
     show = true;
-    console.log('ethers compy');
-		// return;
-      if(window.ethereum && window.ethereum.enable) await window.ethereum.enable();
+    // return;
+    if (window.ethereum.enable) await window.ethereum.enable();
 
-      window.web3.eth.getAccounts( (error, accounts) => {
-          console.log(accounts)
-					account = accounts.length > 0 ? accounts[0] : null;
-					if(!account) noAccount= true;
+    const x = await window.ethereum.send("eth_accounts");
+    const accounts = x.result;
+    
+    account = accounts.length > 0 ? accounts[0] : null;
 
-					user.update(obj => ({account: account}));
-      });
+    console.log('account', account);
+    if (!account) noAccount = true;
+
+    user.update(obj => ({ account: account }));
   }
 
   onMount(x => {
@@ -30,6 +32,6 @@
   });
 </script>
 
-<svelte:window on:load="{onload}"/>
+<svelte:window on:load={onload} />
 
-<slot/>
+<slot />

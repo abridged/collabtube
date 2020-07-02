@@ -44,36 +44,43 @@
 
 <h1>Upload</h1>
 
-<p>This is the 'upload' page. There's not much here.</p>
-<br />
+<figure class="bg-white bg-opacity-50 rounded-md m-2 p-4">
+  <p>This is the 'upload' page. There's not much here.</p>
+  <br />
 
-<h6 class="mb-3 mt-6">Title</h6>
-<input label="Test label" />
+  <h6 class="mb-3 mt-6">Title</h6>
+  <input label="Test label" />
 
-<h6 class="mb-3 mt-6">Description</h6>
-<input label="Test label" textarea=true/>
+  <h6 class="mb-3 mt-6">Description</h6>
+  <input label="Test label" textarea="true" />
 
-<h6 class="mb-3 mt-6">Token cost</h6>
-<input label="Test label" />
+  <h6 class="mb-3 mt-6">Token cost</h6>
+  <input label="Test label" />
 
-<div class="flex">
-<input
-  type="file"
-  accept="image/*;capture=camera"
-  name="uploadImg"
-  class="inputfile float-initial" />
-<label for="uploadImg">Upload Image Preview</label>
-<br />
+  <div class="flex">
+    <input
+      type="file"
+      accept="image/*;capture=camera"
+      name="uploadImg"
+      class="inputfile float-initial" />
+    <label for="uploadImg">Upload Image Preview</label>
+    <br />
 
-<input
-  type="file"
-  accept="video/*;capture=camcorder"
-  name="uploadVid"
-  class="inputfile float-initial" />
-<label for="uploadImg">Record video</label>
+    <input
+      type="file"
+      accept="video/*;capture=camcorder"
+      name="uploadVid"
+      class="inputfile float-initial" />
+    <label for="uploadImg">Record video</label>
 
-</div>
+  </div>
 
-<div class="py-2 py-12">
-   <button class="mdc-button mdc-button--raised mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span> Submit</button>
-</div>
+  <div class="py-2 py-12">
+    <button
+      class="mdc-button mdc-button--raised mdc-card__action
+      mdc-card__action--button">
+      <span class="mdc-button__ripple" />
+      Submit
+    </button>
+  </div>
+</figure>
