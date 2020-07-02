@@ -27,11 +27,6 @@ const data = [{ title: 'ASMR preview video', id: '123', cost: ''}];
       </div>
      {/each}
   
-  <div class="fixed right-0 bottom-0 md:m-4">
-    <button class="mdc-fab" aria-label="Favorite" on:click="{()=>$goto('/upload')}" >
-      <div class="mdc-fab__ripple"></div>
-      <span class="mdc-fab__icon material-icons">publish</span>
-    </button>
-  </div>
+
 </section>
 

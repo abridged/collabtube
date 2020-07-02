@@ -60,13 +60,14 @@
 </style>
 
 <svelte:window on:load={onVanta} />
-<main id="main" class="sm:p-4 md:p-4 min-h-screen h-full">
-  <div class="sm:w-full md:w-5/4 sm:px-0 md:px-8 min-h-full">
+<main id="main" class="min-h-screen h-full">
+  <div class="sm:w-full md:w-5/4 sm:px-0 min-h-full">
     <EthersComp>
-      <Nav />
-      <div class="py-2">
+      
+      <div class="py-2 sm:p-4 md:p-4">
         <slot />
       </div>
+      <Nav />
     </EthersComp>
   </div>
 </main>

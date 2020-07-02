@@ -1,6 +1,10 @@
 <script>
-  import { isActive, url } from "@sveltech/routify";
+  import { isActive, url, goto } from "@sveltech/routify";
   import { user } from "../../AppStore";
+
+  $: isHome  = $isActive('/index') ? 'mdc-tab-indicator--active' : '';
+  $: isUpload  = $isActive('/upload') ? 'mdc-tab-indicator--active' : '';
+  $: isProfile  = $isActive('/profile') ? 'mdc-tab-indicator--active' : '';
 </script>
 
 <style>
@@ -49,56 +53,73 @@
   }
 </style>
 
-<nav>
-  <div class="float-right text-center">Account:<br/>{$user.account}</div>
-  <ul>
-    <li>
-      <a class:active={$isActive('/index')} href={$url('/index')}>home</a>
-    </li>
-    <li>
-      <a class:active={$isActive('/profile')} href={$url('./profile')}>
-        profile
-      </a>
-    </li>
-    <li>
-      <a class:active={$isActive('/upload')} href={$url('./upload')}>upload</a>
-    </li>
-
-  </ul>
-
+<nav class="fixed bottom-0 bg-gray-900 w-screen">
   <div class="mdc-tab-bar" role="tablist">
-  <div class="mdc-tab-scroller">
-    <div class="mdc-tab-scroller__scroll-area">
-      <div class="mdc-tab-scroller__scroll-content">
-        <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
-          <span class="mdc-tab__content">
-            <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
-            <span class="mdc-tab__text-label">home</span>
-          </span>
-          <span class="mdc-tab-indicator mdc-tab-indicator--active">
-            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
-          </span>
-          <span class="mdc-tab__ripple"></span>
-        </button>
+    <div class="mdc-tab-scroller">
+      <div class="mdc-tab-scroller__scroll-area">
+        <div class="mdc-tab-scroller__scroll-content">
+          <button
+            on:click="{x=>$goto('/index')}"
+            class="mdc-tab mdc-tab--active"
+            role="tab"
+            aria-selected="true"
+            tabindex="0">
+            <span class="mdc-tab__content">
+              <span class="mdc-tab__icon material-icons" aria-hidden="true">
+                home
+              </span>
+              <span class="mdc-tab__text-label">feed</span>
+            </span>
+            <span class="mdc-tab-indicator {isHome}">
+              <span
+                class="mdc-tab-indicator__content
+                mdc-tab-indicator__content--underline" />
+            </span>
+            <span class="mdc-tab__ripple" />
+          </button>
 
-        <button class="mdc-tabe" role="tab" aria-selected="true" tabindex="0">
-          <span class="mdc-tab__content">
-            <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
-            <span class="mdc-tab__text-label">profile</span>
-          </span>
-          <span class="mdc-tab__ripple"></span>
-        </button>
+          <button
+            on:click="{x=>$goto('/upload')}"
+            class="mdc-tab mdc-tab--active"
+            role="tab"
+            aria-selected="false"
+            tabindex="0">
+            <span class="mdc-tab__content">
+              <span class="mdc-tab__icon material-icons" aria-hidden="true">
+                publish
+              </span>
+              <span class="mdc-tab__text-label">publish</span>
+            </span>
+            <span class="mdc-tab-indicator {isUpload}">
+              <span
+                class="mdc-tab-indicator__content
+                mdc-tab-indicator__content--underline" />
+            </span>
+            <span class="mdc-tab__ripple" />
+          </button>
 
-        <button class="mdc-tabe" role="tab" aria-selected="true" tabindex="0">
-          <span class="mdc-tab__content">
-            <span class="mdc-tab__icon material-icons" aria-hidden="true">favorite</span>
-            <span class="mdc-tab__text-label">upload</span>
-          </span>
-          <span class="mdc-tab__ripple"></span>
-        </button>
+          <button
+            on:click="{x=>$goto('/profile')}"
+            class="mdc-tab mdc-tab--active"
+            role="tab"
+            aria-selected="false"
+            tabindex="0">
+            <span class="mdc-tab__content">
+              <span class="mdc-tab__icon material-icons" aria-hidden="true">
+                account_circle
+              </span>
+              <span class="mdc-tab__text-label">profile</span>
+            </span>
+            <span class="mdc-tab-indicator {isProfile}">
+              <span
+                class="mdc-tab-indicator__content
+                mdc-tab-indicator__content--underline" />
+            </span>
+            <span class="mdc-tab__ripple" />
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 </nav>

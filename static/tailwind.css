@@ -40,4 +40,8 @@ code {
 	padding: 0 1rem;
 }
 
+.mdc-tab-bar {
+	 color: white;
+}
+
 @tailwind utilities;
