@@ -26,6 +26,7 @@
     if (!window.routify.inBrowser) return;
     if (!window.VANTA || _vanta !== null) return;
 
+    setTimeout( x=> {
     _vanta = window.VANTA.WAVES({
       el: "#main",
       mouseControls: false,
@@ -39,11 +40,15 @@
       color: 0x5a88,
       zoom: 1
     });
+    }, 1000);
     console.log("vanta");
   }
 
   $afterPageLoad(page => {
-    if (!_vanta) return;
+    if (!_vanta) {
+      onVanta();
+      if(!_vanta) return;
+    }
 
     let zoom = 1.5 + Math.random();
     if (page.path === "/index") zoom = 1;
