@@ -20,7 +20,6 @@ const staticDir = 'static'
 const distDir = 'dist'
 const buildDir = `${distDir}/build`
 const useDynamicImports = process.env.BUNDLING === 'dynamic' || isNollup || !!production
-const buildStaticExports = process.env.PRERENDER !== "false" && !!production && !useDynamicImports
 
 del.sync(distDir + '/**') // clear previous builds
 
@@ -58,7 +57,6 @@ const baseConfig = () => ({
     }),
     commonjs(),
 
-    buildStaticExports && prerender(),
 
     production && terser(), // minify
     !production && isNollup && Hmr({ inMemory: true, public: staticDir, }), // refresh only updated code
@@ -74,7 +72,8 @@ const baseConfig = () => ({
 // extends baseConfig
 const bundledConfig = extendBase({
   inlineDynamicImports: true,
-  output: { format: 'iife', file: `${buildDir}/bundle.js` }
+  output: { format: 'iife', file: `${buildDir}/bundle.js` },
+  plugins: [production && prerender() ] //comment this line to disable prerendering  
 })
 
 // extends baseConfig
