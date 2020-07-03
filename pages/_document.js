@@ -10,10 +10,15 @@ class CustomDocument extends Document {
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
             rel="stylesheet"
           />
+          
+          
         </Head>
         <body>
           <Main />
           <NextScript />
+
+          <script  src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/gh/tengbao/vanta/dist/vanta.waves.min.js"></script>
         </body>
       </html>
     );
