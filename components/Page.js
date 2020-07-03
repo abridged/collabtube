@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { inject, observer } from 'mobx-react'
 import Clock from './Clock'
+import { Button } from '@material-ui/core';
 
 @inject('store')
 @observer
@@ -16,8 +17,11 @@ class Page extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>{this.props.title}</h1>
+      <div className="text-center">
+        <h1 className="text-x1">{this.props.title}</h1>
+        <Button variant="contained" color="default">
+          Hello World
+        </Button>
         <Clock
           timeString={this.props.store.timeString}
           light={this.props.store.light}

@@ -4,18 +4,28 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "build:css": "postcss assets/tailwind.css -o assets/main.css",
+    "watch:css": "postcss assets/tailwind.css -o assets/main.css"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
     "next": "latest",
+    "postcss-preset-env": "^6.7.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "tailwindcss": "^1.4.6"
   },
   "license": "ISC",
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.1.0",
-    "@babel/plugin-proposal-decorators": "^7.1.0"
+    "@babel/plugin-proposal-decorators": "^7.1.0",
+    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "@zeit/next-css": "^1.0.1",
+    "autoprefixer": "^9.8.4",
+    "next-purgecss": "^4.0.0",
+    "postcss-cli": "^7.1.1"
   }
 }

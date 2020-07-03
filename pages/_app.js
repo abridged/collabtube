@@ -1,6 +1,8 @@
 import { Provider } from 'mobx-react'
 import { useStore } from '../store'
 
+import '../assets/tailwind.css'
+
 export default function App({ Component, pageProps }) {
   const store = useStore(pageProps.initialState)
 
