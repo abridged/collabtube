@@ -21,12 +21,8 @@
     });
   }
 
-  function onVanta() {
-    console.log("--");
-    if (!window.routify.inBrowser) return;
-    if (!window.VANTA || _vanta !== null) return;
-
-    setTimeout( x=> {
+  function createVanta() {
+    if(_vanta) _vanta.destroy();
     _vanta = window.VANTA.WAVES({
       el: "#main",
       mouseControls: false,
@@ -40,8 +36,16 @@
       color: 0x5a88,
       zoom: 1
     });
-    }, 1000);
-    console.log("vanta");
+  }
+
+  function onVanta() {
+    if (!window.routify.inBrowser) return;
+    if (!window.VANTA || _vanta !== null) return;
+
+    // setTimeout(createVanta, 1000); // hack
+    setTimeout(createVanta, 0);
+
+    // console.log("vanta");
   }
 
   $afterPageLoad(page => {
