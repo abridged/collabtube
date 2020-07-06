@@ -21,7 +21,7 @@ class Page extends React.Component {
         <h1 className="text-x1">{this.props.title}</h1>
         <Button variant="contained" color="default">
           Hello World
-        </Button>
+        </Button><br/>
         <Clock
           timeString={this.props.store.timeString}
           light={this.props.store.light}

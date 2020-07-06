@@ -1,4 +1,5 @@
 import { useRef, useLayoutEffect } from "react";
+import Nav from './Nav';
 
 let _vanta = null;
 export default function Layout({ children, url }) {
@@ -14,7 +15,7 @@ export default function Layout({ children, url }) {
   }
 
   useLayoutEffect(() => {
-     console.log("aaaa", !!_vanta, zoom);
+     // console.log("aaaa", !!_vanta, zoom);
 
      if(!_vanta) _vanta = window.VANTA.WAVES({
         el: element.current,
@@ -41,8 +42,10 @@ export default function Layout({ children, url }) {
   });
 
   return (
-    <div ref={element} className="min-h-screen h-full">
-      <div className="sm:w-full md:w-5/4 sm:px-0 min-h-full">{children}</div>
+    <div ref={element} className="h-full min-h-screen">
+      <div className="sm:w-full md:w-5/4 sm:px-0 min-h-screen">{children}</div>
+      <Nav/>
+        
     </div>
   );
 }
