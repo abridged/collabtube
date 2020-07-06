@@ -17,7 +17,7 @@ export default function SimpleBottomNavigation() {
 
     function onClick(page) {
       if(page==='1') Router.push('/');
-      if(page==='2') Router.push('/other');
+      if(page==='2') Router.push('/upload');
       if(page==='3') Router.push('/profile');
     }
   

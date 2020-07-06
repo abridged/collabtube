@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useEffect } from "react";
 import Nav from './Nav';
 
 let _vanta = null;
@@ -14,7 +14,7 @@ export default function Layout({ children, url }) {
     zoom = .5;
   }
 
-  useLayoutEffect(() => {
+  useEffect(() => {
      // console.log("aaaa", !!_vanta, zoom);
 
      if(!_vanta) _vanta = window.VANTA.WAVES({

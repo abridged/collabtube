@@ -2,4 +2,13 @@
 @tailwind base;
 /* purgecss end ignore */
 @tailwind components;
+
+h1 {
+    font-size: 2rem;
+}
+
+#shareAPIPolyfill-container {
+    z-index: 1000;
+}
+
 @tailwind utilities;
