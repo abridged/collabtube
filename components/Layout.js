@@ -1,51 +1,68 @@
-import { useRef, useLayoutEffect, useEffect } from "react";
-import Nav from './Nav';
+import { useRef, useLayoutEffect, useEffect, useState } from "react";
+import Nav from "./Nav";
+import { ThemeProvider } from "@material-ui/core";
+import { theme } from "../components/Theme";
+import { Easing } from "tweenkle";
+import { useAnimateProps } from "react-animate-props";
 
-let _vanta = null;
 export default function Layout({ children, url }) {
+  const [zoom, setZoom] = useState(1);
+
+  const [_vanta, setVenta] = useState(null);
+
   // console.log("g", url);
 
   const element = useRef();
 
-  let zoom = 1;
+  // let zoom = 1;
 
   // console.log('url', url)
-  if (url !== '/') { // .startsWith("/other")
-    zoom = .5;
-  }
 
   useEffect(() => {
-     // console.log("aaaa", !!_vanta, zoom);
+    if (url === "/") setZoom(2);
+    else if (url === "/upload") setZoom(1.5);
+    else if (url === "/profile") setZoom(1);
+    else setZoom(1);
+    // console.log("aaaa", !!_vanta, zoom);
 
-     if(!_vanta) _vanta = window.VANTA.WAVES({
-        el: element.current,
-        mouseControls: false,
-        touchControls: true,
-        minHeight: 200.0,
-        minWidth: 200.0,
-        scale: 1.5,
-        scaleMobile: 1.0,
-        shininess: 8,
-        waveSpeed: 0.6,
-        color: 0x5a88,
-        zoom: 1,
-      });
+    if (!_vanta) return;
+    _vanta.setOptions({
+      zoom: zoom,
+      el: element.current,
+    });
+  }, [url, element.current, zoom, _vanta]);
 
-    
-      _vanta.setOptions({
-        zoom: zoom,
-        el: element.current,
-      });
-    
+  useEffect(() => {
+    const _vanta2 = window.VANTA.WAVES({
+      el: element.current,
+      mouseControls: false,
+      touchControls: true,
+      minHeight: 200.0,
+      minWidth: 200.0,
+      scale: 1.5,
+      scaleMobile: 1.0,
+      shininess: 8,
+      waveSpeed: 0.6,
+      color: 0x5a88,
+      zoom: 2,
+    });
 
-    // return x=>_vanta.destroy();
-  });
+    _vanta2.setOptions({
+      zoom: 2,
+    });
+    setVenta(_vanta2);
+
+    return () => _vanta2.destroy();
+  }, []);
 
   return (
-    <div ref={element} className="h-full min-h-screen">
-      <div className="sm:w-full md:w-5/4 sm:px-0 min-h-screen">{children}</div>
-      <Nav/>
-        
-    </div>
+    <ThemeProvider theme={theme}>
+      <div ref={element} className="h-full min-h-screen">
+        <div className="sm:w-full md:w-5/4 sm:px-0 min-h-screen max-w-5xl mx-auto">
+          {children}
+        </div>
+        <Nav />
+      </div>
+    </ThemeProvider>
   );
 }

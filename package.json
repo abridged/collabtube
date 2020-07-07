@@ -7,7 +7,8 @@
     "start": "next start",
     "build:css": "postcss assets/tailwind.css -o assets/main.css",
     "watch:css": "postcss assets/tailwind.css -o assets/main.css",
-    "deploy": "vercel"
+    "deploy": "vercel",
+    "deploy_prod": "vercel --prod"
   },
   "dependencies": {
     "3box": "^1.20.1",
@@ -18,9 +19,10 @@
     "mobx-react": "^6.2.2",
     "next": "latest",
     "react": "^16.13.1",
+    "react-animate-props": "^0.2.4",
     "react-dom": "^16.13.1",
-    "sass": "^1.26.9",
-    "tailwindcss": "^1.4.6"
+    "tailwindcss": "^1.4.6",
+    "tweenkle": "^0.2.2"
   },
   "license": "ISC",
   "devDependencies": {

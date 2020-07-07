@@ -1,5 +1,5 @@
 import Page from "../components/Page";
-import { TextField, Slider, Typography } from "@material-ui/core";
+import { TextField, Slider, Typography, Button } from "@material-ui/core";
 
 export default function Other() {
   function valuetext(value) {
@@ -56,7 +56,7 @@ export default function Other() {
           </div>
 
           <div className="upload-btn-wrapper">
-            <button className="btn">Upload video</button>
+          <button className="btn">Upload Video</button>
             <input
               type="file"
               name="myfile"
@@ -66,10 +66,7 @@ export default function Other() {
         </div>
 
         <div className="py-2 py-12">
-          <button>
-            <span className="mdc-button__ripple" />
-            Submit
-          </button>
+          <Button label="" variant="contained" className="text-3xl" color="primary" size="large">submit</Button>
         </div>
       </figure>
       <style jsx>{`
