@@ -1,9 +1,20 @@
 import Page from "../components/Page";
 import { TextField, Slider, Typography, Button } from "@material-ui/core";
+import {addVideo} from '../utils/CTS3';
 
 export default function Other() {
   function valuetext(value) {
     return `${value} $TINGLES`;
+  }
+
+  function onSubmit() {
+    const _files = document.getElementById('videoupload');
+    if(!_files.files) {
+      alert("Please add a video");
+      return;
+    }
+    console.log(_files.files);
+    addVideo(_files.files);
   }
 
   const marks = [
@@ -47,17 +58,9 @@ export default function Other() {
 
         <div className="flex mt-8">
           <div className="upload-btn-wrapper">
-            <button className="btn">Upload Image Preview</button>
-            <input
-              type="file"
-              name="myfile"
-              accept="video/*;capture=camcorder"
-            />
-          </div>
-
-          <div className="upload-btn-wrapper">
           <button className="btn">Upload Video</button>
             <input
+              id="videoupload"
               type="file"
               name="myfile"
               accept="video/*;capture=camcorder"
@@ -66,7 +69,7 @@ export default function Other() {
         </div>
 
         <div className="py-2 py-12">
-          <Button label="" variant="contained" className="text-3xl" color="primary" size="large">submit</Button>
+          <Button onClick={onSubmit} label="" variant="contained" className="text-3xl" color="primary" size="large">submit</Button>
         </div>
       </figure>
       <style jsx>{`

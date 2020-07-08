@@ -4,6 +4,7 @@ import { inject, observer } from 'mobx-react'
 import Clock from './Clock'
 import { Button } from '@material-ui/core';
 import WallCard from './WallCard';
+import SortBy from './SortBy';
 
 @inject('store')
 @observer
@@ -19,7 +20,8 @@ class Page extends React.Component {
   render() {
     return (
       <div className="text-center mx-auth w-full">
-        <h1 className="text-x1">{this.props.title}</h1>
+        <h1 className="text-x1">FEED</h1>
+        <SortBy/>
         <WallCard/>
         <WallCard/>
         <WallCard/>

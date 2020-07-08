@@ -2,8 +2,6 @@ import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import Nav from "./Nav";
 import { ThemeProvider } from "@material-ui/core";
 import { theme } from "../components/Theme";
-import { Easing } from "tweenkle";
-import { useAnimateProps } from "react-animate-props";
 
 export default function Layout({ children, url }) {
   const [zoom, setZoom] = useState(1);
