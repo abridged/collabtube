@@ -2,10 +2,12 @@ import { useState } from "react";
 import Page from "../components/Page";
 import { TextField, Slider, Typography, Button } from "@material-ui/core";
 import { addVideo } from "../utils/CTS3";
+import { Alert, AlertTitle } from "@material-ui/lab";
 // import { createGif } from "../utils/GifUtil";
+import LoadingOverlay from '../components/LoadingOverlay';
 
 export default function Other() {
-  const [state, setState] = useState();
+  const [state, setState] = useState({progress:0});
   function valuetext(value) {
     return `${value} $TINGLES`;
   }
@@ -22,7 +24,28 @@ export default function Other() {
     // console.log("gif finished", gif);
     // setState(gif);
 
-    addVideo(_files.files);
+    const onProgress = p => {
+      console.log(p)
+      setState((x) => ({ ...x, progress: p || 0 }));
+    }
+
+    try {
+      setState((x) => ({ ...x, loading: true, progress: 0 }));
+      addVideo(_files.files, onProgress).then(x=> {
+        setState((x) => ({ ...x, progress: 99 }));
+        setTimeout(_=>{
+          setState((x) => ({ ...x, loading: false }))
+          alert('Video uploaded! After processing completes in a few minutes it will be publically available.');
+        }, 11);
+        
+      }).catch(e=>{
+        throw new Error(e);
+      });
+    } catch (e) {
+      //window.alert(e);
+      setState((x) => ({ ...x, error: e.toString(), loading: false }));
+      return;
+    }
   }
 
   const marks = [
@@ -43,10 +66,18 @@ export default function Other() {
   return (
     <>
       <h1>Upload</h1>
-      {state && <img src={state} width="200" height="200" />}
+      {state.loading && <LoadingOverlay open={state.loading} progress={state.progress} />}
       <figure className="bg-white bg-opacity-50 rounded-md m-2 p-4">
         <p>This is the 'upload' page. There's not much here.</p>
         <br />
+
+        {state.error && (
+          <Alert severity="error">
+            <AlertTitle>Error</AlertTitle>
+            {state.error}
+          </Alert>
+        )}
+        {state.gif && <img src={state.gif} width="200" height="200" />}
 
         <TextField id="title" label="Title" />
         <br />

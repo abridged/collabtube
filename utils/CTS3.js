@@ -29,8 +29,15 @@ function setup() {
   })
 }
 
-export function addVideo(files) {
+export function addVideo(files, onProgress) {
+    if(!files[0] || !files[0].type) throw new Error('no video file');
+    if(files[0].type.indexOf('video')===-1) throw new Error('not a video file');
+    if(files[0].size > 1000000 * 60) throw new Error('video file is too large: try a shorter video');
+    
+    const sizeTotal = files[0].size;
+
     setup();
+
     var s3 = new AWS.S3({
       apiVersion: "2006-03-01",
       params: { Bucket: albumBucketName }
@@ -56,17 +63,24 @@ export function addVideo(files) {
         // ACL: "public-read"
       }
     });
+
+    upload.on('httpUploadProgress', function(e) {
+      
+      const loadedTotal = e.loaded;
+      var progress = Math.round(loadedTotal / sizeTotal * 100);
+      // console.log('httpUploadProgress', progress);
+      if(onProgress) onProgress(progress);
+  });
   
     var promise = upload.promise();
   
     return promise.then(
       function(data) {
-        alert("Successfully uploaded photo.");
-        // viewAlbum(albumName);
+        if(onProgress) onProgress(99);
       },
       function(err) {
         console.log('err', err);
-        return alert("There was an error uploading your photo: ", err.message);
+        // return alert("There was an error uploading your video: ", err.message);
       }
     );
   }
