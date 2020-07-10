@@ -3,9 +3,9 @@ const S3 = require('aws-sdk/clients/s3');
 AWS.S3 = S3;
 // import { AmazonCognitoIdentity } from 'amazon-cognito-identity-js';
 
-const albumBucketName = "collabtube-public";
-const bucketRegion = "us-east-2";
-const IdentityPoolId = "us-east-2:ed15ab27-205e-4582-91c7-56bf29d7bbb3";
+const albumBucketName = "collabtube-public-east1";
+const bucketRegion = "us-east-1";
+const IdentityPoolId = "us-east-1:4b27a1a5-db26-4125-bd3d-959c1a594db9";
 
 // AWS.Cognito.config.update({accessKeyId: 'anything', secretAccessKey: 'anything'});
 
