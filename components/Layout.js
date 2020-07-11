@@ -2,6 +2,7 @@ import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import Nav from "./Nav";
 import { ThemeProvider } from "@material-ui/core";
 import { theme } from "../components/Theme";
+import Head from 'next/head';
 
 export default function Layout({ children, url }) {
   const [zoom, setZoom] = useState(1);
@@ -55,6 +56,10 @@ export default function Layout({ children, url }) {
 
   return (
     <ThemeProvider theme={theme}>
+      <Head>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"></script>
+          <script src="https://cdn.jsdelivr.net/gh/tengbao/vanta/dist/vanta.waves.min.js"></script>
+      </Head>
       <div ref={element} className="h-full min-h-screen">
         <div className="sm:w-full md:w-5/4 sm:px-0 min-h-screen max-w-5xl mx-auto">
           {children}

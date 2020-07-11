@@ -25,18 +25,17 @@ export default function Other() {
     // setState(gif);
 
     const onProgress = p => {
-      console.log(p)
       setState((x) => ({ ...x, progress: p || 0 }));
     }
 
     try {
       setState((x) => ({ ...x, loading: true, progress: 0 }));
       addVideo(_files.files, onProgress).then(x=> {
-        setState((x) => ({ ...x, progress: 99 }));
+        // if() setState((x) => ({ ...x, progress: 99 }));
         setTimeout(_=>{
           setState((x) => ({ ...x, loading: false }))
           alert('Video uploaded! After processing completes in a few minutes it will be publically available.');
-        }, 11);
+        }, 100);
         
       }).catch(e=>{
         throw new Error(e);

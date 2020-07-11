@@ -76,7 +76,7 @@ export function addVideo(files, onProgress) {
   
     return promise.then(
       function(data) {
-        if(onProgress) onProgress(99);
+        // if(onProgress) onProgress(100);
       },
       function(err) {
         console.log('err', err);

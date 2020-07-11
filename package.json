@@ -23,6 +23,7 @@
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-player": "^2.5.0",
     "tailwindcss": "^1.4.6"
   },
   "license": "ISC",

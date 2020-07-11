@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function LoadingOverlay({open, progress}) {
-    console.log('progress', progress)
+    // console.log('progress', progress)
   const classes = useStyles();
 
   const [_open, setOpen] = React.useState(false);
