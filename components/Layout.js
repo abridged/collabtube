@@ -1,13 +1,13 @@
 import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import Nav from "./Nav";
-import { ThemeProvider } from "@material-ui/core";
-import { theme } from "../components/Theme";
 import Head from 'next/head';
 
 export default function Layout({ children, url }) {
   const [zoom, setZoom] = useState(1);
 
   const [_vanta, setVenta] = useState(null);
+
+  const [state, setState] = useState({refresh:0});
 
   // console.log("g", url);
 
@@ -32,6 +32,14 @@ export default function Layout({ children, url }) {
   }, [url, element.current, zoom, _vanta]);
 
   useEffect(() => {
+    if(_vanta2) return;
+    
+    if(!window.VANTA) {
+      setTimeout(_=>{
+        setState(x=>({...x, refresh: x.refresh+1}))
+      }, 100);
+      return;
+    }
     const _vanta2 = window.VANTA.WAVES({
       el: element.current,
       mouseControls: false,
@@ -52,20 +60,15 @@ export default function Layout({ children, url }) {
     setVenta(_vanta2);
 
     return () => _vanta2.destroy();
-  }, []);
+  }, [state]);
 
   return (
-    <ThemeProvider theme={theme}>
-      <Head>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js"></script>
-          <script src="https://cdn.jsdelivr.net/gh/tengbao/vanta/dist/vanta.waves.min.js"></script>
-      </Head>
-      <div ref={element} className="h-full min-h-screen">
+    <div ref={element} className="h-full min-h-screen">
+      
         <div className="sm:w-full md:w-5/4 sm:px-0 min-h-screen max-w-5xl mx-auto">
           {children}
         </div>
         <Nav />
       </div>
-    </ThemeProvider>
   );
 }

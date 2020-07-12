@@ -9,8 +9,11 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ShareIcon from "@material-ui/icons/Share";
 import IconButton from "@material-ui/core/IconButton";
-import Head from "next/head";
-import ReactPlayer from 'react-player'
+
+// import ReactPlayer from "react-player";
+// import "video.js/dist/video-js.css";
+
+import VideoPlayer from "./VideoPlayer";
 
 const useStyles = makeStyles({
   root: {
@@ -30,7 +33,6 @@ export default function WallCard({ file }) {
     ? `https://collabtube-encoded-east1.s3.amazonaws.com/${file.file}.m3u8`
     : null;
 
-  console.log("vurl", vurl);
   const desc = `Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica`;
 
@@ -42,23 +44,28 @@ export default function WallCard({ file }) {
     });
   }
 
-
-
   return (
     <>
       <Card className={classes.root} className="max-w-sm my-8 mx-auto">
-        <Head>
-          <title>Gallery</title>
-
-        </Head>
         <CardActionArea>
-          <CardMedia
-            component="img"
-            alt={title}
-            height="140"
-            image={url}
-            title={title}
-          />
+          {vurl && (
+            <VideoPlayer
+              width="100%"
+              className="w-full"
+              controls={true}
+              url={vurl}
+              sources={[{ url: url }]}
+            />
+          )}
+          {!vurl && (
+            <CardMedia
+              component="img"
+              alt={title}
+              height="140"
+              image={url}
+              title={title}
+            />
+          )}
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               {title}
@@ -67,8 +74,6 @@ export default function WallCard({ file }) {
               {desc}
             </Typography>
           </CardContent>
-
-  {vurl && <ReactPlayer width="100%" className="w-full" controls={true} url={vurl} /> }
         </CardActionArea>
         <CardActions className="w-full">
           <Button size="small" color="primary">
@@ -86,7 +91,6 @@ export default function WallCard({ file }) {
           </IconButton>
         </CardActions>
       </Card>
-      
     </>
   );
 }
