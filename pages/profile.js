@@ -1,4 +1,4 @@
-import Page from '../components/Page'
+import Page from '../components/Wall'
 import {useEffect, useState} from 'react';
 const Box = require('3box')
 

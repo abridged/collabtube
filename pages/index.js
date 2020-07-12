@@ -1,5 +1,5 @@
-import Page from '../components/Page'
+import Wall from '../components/Wall'
 
 export default function Index() {
-  return <Page />
+  return <Wall />
 }

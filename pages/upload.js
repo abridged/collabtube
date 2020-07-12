@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Page from "../components/Page";
+import Page from "../components/Wall";
 import { TextField, Slider, Typography, Button } from "@material-ui/core";
 import { addVideo } from "../utils/CTS3";
 import { Alert, AlertTitle } from "@material-ui/lab";
