@@ -1,10 +1,19 @@
 <script>
   import { isActive, url, goto } from "@sveltech/routify";
   import { user } from "../../AppStore";
+  import {MDCTab} from '@material/tab';
+  import {MDCTabBar} from '@material/tab-bar';
+  import { onMount } from "svelte";
+  
+  onMount( x => {
+    const menu = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
+    console.log('started');
+  });
 
   $: isHome  = $isActive('/index') ? 'mdc-tab-indicator--active' : '';
   $: isUpload  = $isActive('/upload') ? 'mdc-tab-indicator--active' : '';
   $: isProfile  = $isActive('/profile') ? 'mdc-tab-indicator--active' : '';
+
 </script>
 
 <style>
@@ -53,7 +62,7 @@
   }
 </style>
 
-<nav class="fixed bottom-0 bg-gray-900 w-screen">
+<nav class="fixed bottom-0 bg-gray-100 w-screen">
   <div class="mdc-tab-bar" role="tablist">
     <div class="mdc-tab-scroller">
       <div class="mdc-tab-scroller__scroll-area">

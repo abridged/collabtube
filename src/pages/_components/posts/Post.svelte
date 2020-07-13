@@ -12,7 +12,7 @@
   </div>
   <div class="mdc-card__actions">
     <div class="mdc-card__action-buttons">
-      <button class="mdc-button mdc-button--outlined mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span> Buy (3 $TINGLES)</button>
+      <button class="mdc-button mdc-button--raised mdc-card__action mdc-card__action--button">  <span class="mdc-button__ripple"></span> Buy (3 $TINGLES)</button>
     </div>
     <div class="mdc-card__action-icons">
       <button class="mdc-icon-button mdc-card__action mdc-card__action--icon--unbounded" aria-pressed="false" aria-label="Add to favorites" title="Add to favorites">

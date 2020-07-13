@@ -28,10 +28,10 @@
   }
 
   onMount(x => {
-    onload();
+    // onload(); on:load={onload} 
   });
 </script>
 
-<svelte:window on:load={onload} />
+<svelte:window />
 
 <slot />

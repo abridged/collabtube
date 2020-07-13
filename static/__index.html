@@ -5,24 +5,42 @@
 	<meta name='viewport' content='width=device-width,initial-scale=1'>
 
 	<title>Svelte app</title>
+	<meta name="theme-color" content="#E938C2">
+	<link rel="apple-touch-icon" href="images/touch-icons/logo-192.png">
 
 	<link rel='icon' type='image/png' href='/favicon.png'>
 	<link rel="stylesheet" href="/index.css" />
 	<link rel='stylesheet' href='/build/bundle.css'>
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons&display=swap"
+	<link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+	<link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons&display=swap"
 	rel="stylesheet" />
 
 	__SCRIPT__
 
 	<!-- Required styles for Material Web -->
-	<link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/8.0.0-canary.ec2385881.0/material-components-web.css">
 </head>
 
 <body style="height: 100%">
+	<noscript>Please enable Javascript for best experience.</noscript>
+
 	<div id="base"/>
-	<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-	<script src="https://unpkg.com/three@0.118.3/build/three.min.js"></script>
-	<script src="/vanta.waves.min.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.16/vanta.waves.min.js" defer></script>
+
+	<script>
+		let link = document.createElement('link')
+		link.href = 'https://fonts.googleapis.com/css?family=Roboto:300,400,500|Material+Icons&display=swap'
+		link.rel = 'stylesheet'
+		link.crossOrigin = 'crossorigin'
+		document.head.appendChild(link)
+
+		link = document.createElement('link')
+		link.href = 'https://fonts.googleapis.com/icon?family=Material+Icons'
+		link.rel = 'stylesheet'
+		link.crossOrigin = 'crossorigin'
+		document.head.appendChild(link)
+	</script>
 </body>
 </html>
