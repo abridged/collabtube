@@ -1,5 +1,7 @@
 public/
 node_modules/
+node_modules2/
 api/ssr/bundle.json
 .netlify/functions
 package-lock.json
+yarn-error.log

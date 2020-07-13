@@ -1,6 +1,13 @@
 /node_modules/
+/node_modules2/
 /dist/
 .DS_Store
 **/.history
 /src/tmp/
 .routify
+yarn-error.log
+.next
+.vercel
+out/
+.netlify
+*.bak
