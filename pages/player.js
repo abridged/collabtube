@@ -6,9 +6,10 @@ import { Button } from "@material-ui/core";
 import WallCard from "../components/WallCard";
 import SortBy from "../components/SortBy";
 import Head from "next/head";
+import useScript from 'react-script-hook';
 
 const init = {
-  feed: [{ file: "small" }],
+  feed: [{ file: "small", refresh: 0 }],
 };
 
 // @inject('store')
@@ -17,16 +18,34 @@ function Wall() {
 
   const videoRef = useRef();
 
-  useEffect((x) => {
+  function setup() {
+    if(!window.videojs) return;
+    if(state.setup) return;
+
     var player = window.videojs(videoRef.current, {
-      autoplay: 'any'
-    }).ready(function() {
+      autoplay: "any",
+    })
+    .ready(function () {
       // self.player = this;
       // self.player.on('play', self.handlePlay);
     });
-  }, []);
+    setState((x) => ({ ...x, setup: true }));
+  }
 
-  const name = 'small';
+  useScript({
+    src: "https://vjs.zencdn.net/7.8.4/video.js",
+    checkForExisting: true,
+    onload: () => {
+      setState((x) => ({ ...x, refresh: x.refresh + 1 }));
+      setup();
+    },
+  });
+
+  useEffect((x) => {
+    setup();
+  }, [state]);
+
+  const name = "small";
   const file = `https://collabtube-encoded-east1.s3.amazonaws.com/${name}.m3u8`;
 
   return useObserver(() => (
@@ -37,7 +56,6 @@ function Wall() {
           href="https://vjs.zencdn.net/7.8.4/video-js.css"
           rel="stylesheet"
         />
-        <script src="https://vjs.zencdn.net/7.8.4/video.js"></script>
       </Head>
       <h1 className="text-x1">TITLE</h1>
       <div id="video" className="w-full">
