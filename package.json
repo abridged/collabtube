@@ -24,7 +24,6 @@
     "next": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-player": "^2.5.0",
     "react-script-hook": "^1.1.1",
     "tailwindcss": "^1.4.6"
   },

@@ -10,7 +10,8 @@ import Typography from "@material-ui/core/Typography";
 import ShareIcon from "@material-ui/icons/Share";
 import IconButton from "@material-ui/core/IconButton";
 import Head from "next/head";
-import ReactPlayer from 'react-player'
+// import ReactPlayer from 'react-player'
+import Router from 'next/router' 
 
 const useStyles = makeStyles({
   root: {
@@ -42,6 +43,9 @@ export default function WallCard({ file }) {
     });
   }
 
+  const onClick=() => {
+    Router.push('/player');
+  }
 
 
   return (
@@ -68,10 +72,9 @@ export default function WallCard({ file }) {
             </Typography>
           </CardContent>
 
-  {vurl && <ReactPlayer width="100%" className="w-full" controls={true} url={vurl} /> }
         </CardActionArea>
         <CardActions className="w-full">
-          <Button size="small" color="primary">
+          <Button size="small" color="primary" onClick={onClick}>
             3 $TINGLES
           </Button>
           <Button size="small" color="primary">
@@ -92,6 +95,8 @@ export default function WallCard({ file }) {
 }
 
 /*
+  {vurl && <ReactPlayer width="100%" className="w-full" controls={true} url={vurl} /> }
+
           <link
             href="//vjs.zencdn.net/7.3.0/video-js.min.css"
             rel="stylesheet"
