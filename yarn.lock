@@ -1486,6 +1486,11 @@
     node-fetch "^2.6.0"
     utf-8-validate "^5.0.2"
 
+"@sveltejs/svelte-virtual-list@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@sveltejs/svelte-virtual-list/-/svelte-virtual-list-3.0.1.tgz#3784d6426508836b4471bba8ba293430e73717d8"
+  integrity sha512-aF9TptS7NKKS7/TqpsxQBSDJ9Q0XBYzBehCeIC5DzdMEgrJZpIYao9LRLnyyo6SVodpapm2B7FE/Lj+FSA5/SQ==
+
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@szmarczak/http-timer/-/http-timer-1.1.2.tgz#b1665e2c461a2cd92f4c1bbf50d5454de0d4b421"
@@ -6872,6 +6877,11 @@ svelte-hmr@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/svelte-hmr/-/svelte-hmr-0.8.0.tgz#c02c9b5bbe2e8fa23f6f7e221aef4d00495d9e39"
   integrity sha512-2CIgd1q2ANQhKzboWHQEZqNX+2kSun12Z8WTy/REOY4ymekWm9C9tsHKdE8uxp2snVYC64RXI6iNgtqpWtSfXg==
+
+svelte-infinite-scroll@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/svelte-infinite-scroll/-/svelte-infinite-scroll-1.4.1.tgz#327f54e7d15bd1f03dcb5a2f2fd41db9b9406ff7"
+  integrity sha512-yesfAq24EuZ0onjRHW+m6U+pZab6G/nxsCv/RodQAjUr3+RtpT2BYcrykTHEakFGMUC+zKgVqAZF8iuytb5OjA==
 
 svelte@^3.23.2:
   version "3.24.0"
