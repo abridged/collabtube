@@ -1,5 +1,5 @@
 if (!require('fs').existsSync('node_modules')) {
-    require('child_process').execSync('npm install')
+    require('child_process').execSync('yarn')
 }
 
 const fs = require('fs-extra')

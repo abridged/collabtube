@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "yarn run build:app && yarn run build:netlify",
-    "build:app": "cd ../.. && yarn && yarn run build",
+    "build:app": "cd ../.. && yarn run build",
     "build:netlify": "node build && cd api/ssr && yarn",
     "deploy": "yarn run build:netlify && netlify deploy"
   },

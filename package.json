@@ -21,6 +21,7 @@
     "build:tailwind": "NODE_ENV=production postcss static/tailwind.css -o static/index.css"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-node-resolve": "^8.1.0",
     "concurrently": "^5.2.0",
