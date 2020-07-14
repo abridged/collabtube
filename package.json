@@ -55,6 +55,7 @@
     "rollup-plugin-workbox": "^5.0.1",
     "svelte": "^3.23.2",
     "svelte-infinite-scroll": "^1.4.1",
+    "svelte-virtual-list-enhanced": "^1.2.0",
     "tailwindcss": "^1.4.6",
     "workbox-cli": "^5.1.3"
   }

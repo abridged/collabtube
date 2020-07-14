@@ -21,12 +21,8 @@
   Sugar Boogerz
 </h1>
 
-<section class="text-gray-700 body-font m-0">
-  <div class="container px-5 sm:px-0 py-24 mx-auto">
-    <div class="flex flex-wrap m-4 justify-center items-center">
+
 
       <Wall />
 
-    </div>
-  </div>
-</section>
+

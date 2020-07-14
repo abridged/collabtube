@@ -4,40 +4,64 @@
   import { fade, fly } from "svelte/transition";
   import { goto } from "@sveltech/routify";
   // import SvelteInfiniteScroll from "svelte-infinite-scroll";
-  import VirtualList from '@sveltejs/svelte-virtual-list';
+  import VirtualList from "svelte-virtual-list-enhanced";
+  import WallPic from "./WallPic.svelte";
 
   let page = 1;
   let size = 2;
-  let items = Object.keys(Array(20).fill(0)).map(i=>["small"]);
+  let items = Object.keys(Array(20).fill(0)).map(i => ["small"]);
   let itemsLen = 0;
 
-  let start, end=20;
+  let start,
+    end = 22;
 
-  $: console.log('page', page)
+  $: console.log("page", page);
 
   /* $: items = [
     ...items,
     ...Object.keys(Array(size*page).fill(0)).map(i=>["small"])
   ];*/
 
-  $: console.log(page, items)
+  $: console.log(page, items);
 
-  let container;
+  function onEnd() {
+    console.log("onend");
+  }
 
+  function onClick(e) {
+    console.log(e.target);
+    e.target.className = "pop";
+  }
   //   <SvelteInfiniteScroll elementScroll={container} threshold={100} on:loadMore={() => page++} />
+  // <Post name={item} />
+  // <VirtualList items={items} let:item on:OnEndReached={onEnd}></VirtualList>
+  export let animate = true;
 </script>
 
-<div bind:this={container}>
+<style>
+  .pop {
+    width: 100px;
+  }
+</style>
 
-  <p>showing {start}-{end} of {items.length} rows</p>
+<section class="text-gray-700 body-font m-0">
+  <div class="container px-5 sm:px-0 py-24 mx-auto">
+    <div class="flex flex-wrap m-4 justify-center items-center">
 
-  <VirtualList itemHeight={200} items={items} let:item bind:start bind:end>
-    <div
-      class="flex-initial md:m-5 sm:w-full md:w-auto"
-      in:fly={{ y: 200, duration: 800, delay: 900 }}
-      >
-      <Post name={item} />
+      <div style="min-h-full">
+
+        <div class="grid grid-flow-row grid-cols-3 gap-4">
+          {#each items as item, index}
+            <div
+              class={'w-48'}
+              on:click={onClick}
+              in:fly={{ y: 200, duration: animate ? 400 : 0, delay: (600 * index) / 10 }}>
+              <WallPic {item} />
+            </div>
+          {/each}
+        </div>
+      </div>
+
     </div>
-  </VirtualList>
-
-</div>
+  </div>
+</section>
