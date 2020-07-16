@@ -31,7 +31,7 @@ export default function WallCard({ file }) {
     ? `https://collabtube-encoded-east1.s3.amazonaws.com/${file.file}.m3u8`
     : null;
 
-  console.log("vurl", vurl);
+  // console.log("vurl", vurl);
   const desc = `Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica`;
 
