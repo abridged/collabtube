@@ -12325,10 +12325,10 @@ rollup-plugin-hot-nollup@^0.1.0:
   dependencies:
     "@rollup/pluginutils" "^3.1.0"
 
-rollup-plugin-hot@^0.0.31:
-  version "0.0.31"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-hot/-/rollup-plugin-hot-0.0.31.tgz#d586b0e6b5243cdfb9aab3c1fa1577ebcec6c2fa"
-  integrity sha512-r1rRacopG3uGmDst613iFF21QNK0dW/crBkckId3kvA1ONFj+tqlx20yJL95vU0ikdD9nVauAwbVXP7YDRm2rQ==
+rollup-plugin-hot@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-hot/-/rollup-plugin-hot-0.1.0.tgz#8c0a0ab98a8dd12671c85246bc730a1cb530d0c6"
+  integrity sha512-bmeH8Hls40nstmwIq6EPKBG5yHOdvcSjONIijDxLQ+8vK15jJp/9nM+TPX0Xmoq5IiV4lVEyqmgQnat3GOr8Lg==
   dependencies:
     cors "^2.8.5"
     express "^4.17.1"

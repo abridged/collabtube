@@ -17,8 +17,8 @@
 
 </style>
 
-<h1 class="ml text-white uppercase font-bold mb-4 mx-auto text-center">
-  Sugar Boogerz
+<h1 class="ml text-white uppercase font-bold mx-auto text-center prose prose-2xl">
+  sugar boogerz ASMR
 </h1>
 
 <Wall />
