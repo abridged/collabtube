@@ -21,8 +21,4 @@
   Sugar Boogerz
 </h1>
 
-
-
-      <Wall />
-
-
+<Wall />

@@ -1,7 +1,34 @@
 <script>
   import { metatags } from "@sveltech/routify";
+  // import { addVideo } from "../utils/CTS3";
 
   metatags.title = "upload";
+
+  async function onSubmit() {
+    const _files = document.getElementById("videoupload");
+    if (!_files.files) {
+      alert("Please add a video");
+      return;
+    }
+    console.log(_files.files);
+
+    const onProgress = p => {
+      // setState((x) => ({ ...x, progress: p || 0 }));
+    }
+
+    try {
+     
+      /* 
+      addVideo(_files.files, onProgress).then(x=> {
+        
+      }).catch(e=>{
+        throw new Error(e);
+      });
+      */
+    } catch (e) {
+      return;
+    }
+  }
 </script>
 
 <style>
@@ -77,6 +104,7 @@
 
   <div class="py-2 py-12">
     <button
+      on:click={onSubmit}
       class="mdc-button mdc-button--raised mdc-card__action
       mdc-card__action--button">
       <span class="mdc-button__ripple" />
