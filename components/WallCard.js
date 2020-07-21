@@ -9,9 +9,9 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import ShareIcon from "@material-ui/icons/Share";
 import IconButton from "@material-ui/core/IconButton";
-import Head from "next/head";
+// import Head from "next/head";
 // import ReactPlayer from 'react-player'
-import Router from 'next/router' 
+import Router from "next/router";
 
 const useStyles = makeStyles({
   root: {
@@ -43,54 +43,43 @@ export default function WallCard({ file }) {
     });
   }
 
-  const onClick=() => {
-    Router.push('/player');
-  }
-
+  const onClick = () => {
+    Router.push("/player");
+  };
 
   return (
-    <>
-      <Card className={classes.root} className="max-w-sm my-8 mx-auto">
-        <Head>
-          <title>Gallery</title>
-
-        </Head>
-        <CardActionArea>
-          <CardMedia
-            component="img"
-            alt={title}
-            height="140"
-            image={url}
-            title={title}
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
-              {title}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {desc}
-            </Typography>
-          </CardContent>
-
-        </CardActionArea>
-        <CardActions className="w-full">
-          <Button size="small" color="primary" onClick={onClick}>
-            3 $TINGLES
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-          <IconButton
-            onClick={(x) => onShare("lizard")}
-            aria-label="share"
-            className="align-right float-right"
-          >
-            <ShareIcon />
-          </IconButton>
-        </CardActions>
-      </Card>
-      
-    </>
+    <Card
+      className={classes.root}
+      style={{ height: "70vh", width: "70vw" }}
+      className="mx-4"
+    >
+      <CardActionArea>
+        <CardMedia component="img" alt={title} image={url} title={title} />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {title}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {desc}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions className="w-full">
+        <Button size="small" color="primary" onClick={onClick}>
+          3 $TINGLES
+        </Button>
+        <Button size="small" color="primary">
+          Learn More
+        </Button>
+        <IconButton
+          onClick={(x) => onShare("lizard")}
+          aria-label="share"
+          className="align-right float-right"
+        >
+          <ShareIcon />
+        </IconButton>
+      </CardActions>
+    </Card>
   );
 }
 

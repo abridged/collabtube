@@ -4,11 +4,11 @@
 @tailwind components;
 
 h1 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 #shareAPIPolyfill-container {
-    z-index: 1000;
+  z-index: 1000;
 }
 
 @tailwind utilities;

@@ -1,13 +1,13 @@
 module.exports = {
   purge: {
     // Learn more on https://tailwindcss.com/docs/controlling-file-size/#removing-unused-css
-    enabled: process.env.NODE_ENV === 'production',
+    enabled: process.env.NODE_ENV === "production",
     content: [
-      'components/**/*.js',
-      'layouts/**/*.js',
-      'pages/**/*.js',
-      'plugins/**/*.js'
-    ]
+      "components/**/*.js",
+      "layouts/**/*.js",
+      "pages/**/*.js",
+      "plugins/**/*.js",
+    ],
   },
   target: "relaxed",
   prefix: "",
@@ -744,7 +744,5 @@ module.exports = {
     transitionDelay: ["responsive"],
   },
   corePlugins: {},
-  plugins: [
-    require('@tailwindcss/typography')
-  ],
+  plugins: [require("@tailwindcss/typography")],
 };
