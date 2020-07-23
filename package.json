@@ -28,6 +28,7 @@
     "react-dom": "^16.13.1",
     "react-flickity-component": "^3.5.0",
     "react-glider": "^2.0.1",
+    "react-insta-stories": "^2.0.4",
     "react-script-hook": "^1.1.1",
     "tailwindcss": "^1.4.6",
     "uuid": "^8.2.0"

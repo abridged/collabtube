@@ -10776,6 +10776,11 @@ react-inlinesvg@^1.2.0:
     exenv "^1.2.2"
     react-from-dom "^0.3.0"
 
+react-insta-stories@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-insta-stories/-/react-insta-stories-2.0.4.tgz#78378586dc7b919e300e9084e7337faa54255166"
+  integrity sha512-Q9tatROe8sKICjRMUL3G4GEi/nld5FLfL3q0DMRRHbeEm7H/q7xQ0B8ftRTZNfWw6O6L9ATIaktgRwMFHJ9cBg==
+
 react-is@16.13.1, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
