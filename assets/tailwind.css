@@ -1,13 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 
 /* purgecss start ignore */
 @tailwind base;
 /* purgecss end ignore */
 @tailwind components;
-
-h1 {
-  font-size: 2rem;
-}
 
 #shareAPIPolyfill-container {
   z-index: 1000;

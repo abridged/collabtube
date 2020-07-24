@@ -38,15 +38,15 @@ function Page() {
         <title>CollabTube</title>
         // TODO: Add tab icon
       </Head>
-      <div className="text-center mx-auth w-full max-w-screen bg-gray-500">
-        <Flickity options={flickityOptions} className="max-w-full">
+      <div className="flex-wrap text-center mx-auth w-full max-w-screen bg-gray-500">
+        <Flickity options={flickityOptions} className="overflow-hidden">
           {state.feed.map((x) => (
             <WallCard key={x.id} file={x} />
           ))}
         </Flickity>
       </div>
 
-      <DynamicStoriesWithNoSSR />
+      {/*<DynamicStoriesWithNoSSR />*/}
     </>
   ));
 }

@@ -1,7 +1,7 @@
 import { Provider } from "mobx-react";
 import { useStore } from "../store";
 import { useRef, useEffect } from "react";
-import Layout from "../components/Layout.js";
+import Layout from "../components/Layout";
 import "../assets/tailwind.css";
 import "mobx-react-lite/batchingForReactDom";
 /*

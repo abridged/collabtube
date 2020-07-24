@@ -2,6 +2,7 @@ import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import Nav from "./Nav";
 import Head from 'next/head';
 import useScript from 'react-script-hook';
+
 export default function Layout({ children, url }) {
   const [zoom, setZoom] = useState(1);
 
@@ -19,7 +20,7 @@ export default function Layout({ children, url }) {
 
   // Removed for cleaner start
 
-  // useScript({ 
+  // useScript({
   //   src: 'https://cdn.jsdelivr.net/gh/tengbao/vanta/dist/vanta.waves.min.js',
   //   checkForExisting: true,
   //   onload: () => setState(x=>({...x, refresh: x.refresh+1}))
@@ -45,7 +46,7 @@ export default function Layout({ children, url }) {
   //   if(!window.VANTA) {
   //     /* setTimeout(_=>{
   //       setState(x=>({...x, refresh: x.refresh+1}))
-  //     }, 100); 
+  //     }, 100);
   //     */
   //     return;
   //   }
