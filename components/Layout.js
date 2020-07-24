@@ -2,12 +2,13 @@ import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import Nav from "./Nav";
 import Head from 'next/head';
 import useScript from 'react-script-hook';
+
 export default function Layout({ children, url }) {
   const [zoom, setZoom] = useState(1);
 
   const [_vanta, setVenta] = useState(null);
 
-  const [state, setState] = useState({refresh:0});
+  const [state, setState] = useState({ refresh: 0 });
 
   // console.log("g", url);
 
@@ -17,7 +18,9 @@ export default function Layout({ children, url }) {
 
   // console.log('url', url)
 
-  useScript({ 
+  // Removed for cleaner start
+
+  useScript({
     src: 'https://cdn.jsdelivr.net/gh/tengbao/vanta/dist/vanta.waves.min.js',
     checkForExisting: true,
     onload: () => setState(x=>({...x, refresh: x.refresh+1}))
@@ -39,11 +42,11 @@ export default function Layout({ children, url }) {
 
   useEffect(() => {
     if(_vanta2) return;
-    
+
     if(!window.VANTA) {
       /* setTimeout(_=>{
         setState(x=>({...x, refresh: x.refresh+1}))
-      }, 100); 
+      }, 100);
       */
       return;
     }
@@ -70,14 +73,17 @@ export default function Layout({ children, url }) {
   }, [state]);
 
   return (
-    <div ref={element} className="h-full min-h-screen">
+    <div ref={element} className="min-h-screen grid grid-rows-2" style={{ gridTemplateRows: 'auto 1fr' }}>
       <Head>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js" defer></script>
       </Head>
-        <div className="sm:w-full md:w-5/4 sm:px-0 min-h-screen max-w-5xl mx-auto">
-          {children}
-        </div>
-        <Nav />
+      <div className="text-center">
+        <p className="font-header text-3xl bg-white">FAMEGOODS</p>
       </div>
+      <div>
+        {children}
+      </div>
+      <Nav />
+    </div>
   );
 }
