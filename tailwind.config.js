@@ -10,7 +10,11 @@ module.exports = {
     ],
   },
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        header: ['Recursive']
+      }
+    },
   },
   variants: {},
   plugins: [],

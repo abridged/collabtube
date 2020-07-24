@@ -6,8 +6,8 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
-    "build:css": "postcss assets/tailwind.css -o assets/main.css",
-    "watch:css": "postcss assets/tailwind.css -o assets/main.css",
+    "build:css": "tailwindcss build assets/tailwind.css -o assets/main.css",
+    "watch:css": "tailwindcss build assets/tailwind.css -o assets/main.css",
     "deploy": "vercel",
     "deploy_prod": "vercel --prod"
   },

@@ -91,7 +91,7 @@ export default function WallCard({ file }) {
             rel="stylesheet"
           />
           <script src="//vjs.zencdn.net/7.3.0/video.min.js"></script>
-          
+
   useEffect((x) => {
     return;
     if (!window || !window.videojs) return;

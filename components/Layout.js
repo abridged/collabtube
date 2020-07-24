@@ -73,11 +73,14 @@ export default function Layout({ children, url }) {
   // }, [state]);
 
   return (
-    <div ref={element} className="h-full min-h-screen bg-gray-400">
+    <div ref={element} className="min-h-screen grid grid-rows-2" style={{ gridTemplateRows: 'auto 1fr' }}>
       <Head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js" defer></script>
       </Head>
-      <div className="sm:w-full md:w-5/4 sm:px-0 min-h-screen max-w-5xl mx-auto">
+      <div className="text-center">
+        <p className="font-header text-3xl">FAMEGOODS</p>
+      </div>
+      <div>
         {children}
       </div>
       <Nav />
