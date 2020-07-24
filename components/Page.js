@@ -38,7 +38,7 @@ function Page() {
         <title>FAMEGOODS</title>
         // TODO: Add tab icon
       </Head>
-      <div className="flex-wrap text-center mx-auth w-full max-w-screen bg-gray-500">
+      <div className="flex-wrap mx-auth w-full">
         <Flickity options={flickityOptions} className="overflow-hidden p-5">
           {state.feed.map((x) => (
             <WallCard key={x.id} file={x} />
