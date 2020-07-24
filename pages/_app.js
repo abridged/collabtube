@@ -14,7 +14,7 @@ import "../vendor/styles/emoji-mart.css";
 export default function App({ Component, pageProps, router }) {
   const store = useStore(pageProps.initialState);
 
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
 
   return (
     <Provider store={store}>
