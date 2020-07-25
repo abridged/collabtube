@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Page from "../components/Page";
 import { TextField, Slider, Typography, Button } from "@material-ui/core";
 import { addVideo } from "../utils/CTS3";
@@ -36,7 +36,7 @@ export default function Other() {
           setState((x) => ({ ...x, loading: false }))
           alert('Video uploaded! After processing completes in a few minutes it will be publically available.');
         }, 100);
-        
+
       }).catch(e=>{
         throw new Error(e);
       });

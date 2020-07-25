@@ -35,8 +35,8 @@ function Page() {
   return useObserver(() => (
     <>
       <Head>
-        <title>FAMEGOODS</title>
-        // TODO: Add tab icon
+        <title>DFAME</title>
+      // TODO: Add tab icon
       </Head>
       <div className="flex-wrap mx-auth w-full">
         <Flickity options={flickityOptions} className="overflow-hidden p-5">
