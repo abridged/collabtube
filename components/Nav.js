@@ -3,13 +3,19 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction'
 import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import PublishIcon from '@material-ui/icons/Publish';
+import { Icon, InlineIcon } from '@iconify/react';
+import streamSolid from '@iconify/icons-la/stream-solid';
+import compassIcon from '@iconify/icons-la/compass';
+import shoppingBagSolid from '@iconify/icons-la/shopping-bag-solid';
+import userIcon from '@iconify/icons-la/user';
+
 
 import React from 'react'
 import Link from 'next/link'
 import { inject, observer } from 'mobx-react'
 import Clock from './Clock'
 import { Button } from '@material-ui/core';
-import Router from 'next/router' 
+import Router from 'next/router'
 
 export default function SimpleBottomNavigation() {
     // const classes = useStyles();
@@ -20,7 +26,7 @@ export default function SimpleBottomNavigation() {
       if(page==='2') Router.push('/upload');
       if(page==='3') Router.push('/profile');
     }
-  
+
     return (
       <BottomNavigation
         value={value}
@@ -31,9 +37,10 @@ export default function SimpleBottomNavigation() {
         showLabels
         className="w-full fixed bottom-0"
       >
-        <BottomNavigationAction label="Home" value="1" icon={<HomeIcon />} />
-        <BottomNavigationAction label="Upload" value="2" icon={<PublishIcon />} />
-        <BottomNavigationAction label="Profile" value="3" icon={<AccountCircleIcon />} />
+        <BottomNavigationAction value="1" icon={<Icon icon={streamSolid} color="black" height="2em" />} />
+        <BottomNavigationAction value="2" icon={<Icon icon={compassIcon} color="black" height="2em" />} />
+        <BottomNavigationAction value="3" icon={<Icon icon={shoppingBagSolid} color="black" height="2em" />} />
+        <BottomNavigationAction value="3" icon={<Icon icon={userIcon} color="black" height="2em" />} />
       </BottomNavigation>
     );
   }
