@@ -31,7 +31,7 @@ export default function SimpleBottomNavigation() {
         onClick(newValue);
       }}
       showLabels
-      className="w-full fixed bottom-0 mb-3"
+      className="w-full fixed bottom-0"
     >
       <BottomNavigationAction value="1" icon={<Icon icon={streamSolid} color="black" height="2em" />} />
       <BottomNavigationAction value="2" icon={<Icon icon={compassIcon} color="black" height="2em" />} />
