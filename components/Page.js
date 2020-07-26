@@ -6,6 +6,11 @@ import { inject, observer, useObserver } from "mobx-react";
 import Clock from "./Clock";
 import WallCard from "./WallCard";
 import SortBy from "./SortBy";
+import Flickity from "react-flickity-component";
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import Drawer from "react-bottom-drawer";
+import Others from "../pages/upload";
 
 import TestCard from "./TestCard";
 import FeedCard from "./FeedCard";
@@ -24,6 +29,8 @@ const DynamicStoriesWithNoSSR = dynamic(() => import("./StoryFeed"), {
   ssr: false,
 });
 
+
+
 // @inject('store')
 function Page() {
   const [state, setState] = useState(init);
@@ -36,28 +43,28 @@ function Page() {
   }, []);
 
   const SampleNextArrow = () => {
-  return (
-    <div
-      className="block bg-gray-300"
-      onClick={(e) => {
-        e.preventDefault()
-        Slider.slickNext()
-      }}
-    />
-  );
-}
+    return (
+      <div
+        className="block bg-gray-300"
+        onClick={(e) => {
+          e.preventDefault()
+          Slider.slickNext()
+        }}
+      />
+    );
+  }
 
-const SamplePrevArrow = () => {
-  return (
-    <div
-      style={{ display: "block", background: "red" }}
-      onClick={(e) => {
-        e.preventDefault()
-        Slider.slickPrev()
-      }}
-    />
-  );
-}
+  const SamplePrevArrow = () => {
+    return (
+      <div
+        style={{ display: "block", background: "red" }}
+        onClick={(e) => {
+          e.preventDefault()
+          Slider.slickPrev()
+        }}
+      />
+    );
+  }
 
   const settings = {
     infinite: false,
@@ -67,6 +74,10 @@ const SamplePrevArrow = () => {
     slidesToScroll: 4,
     className: "z-auto"
   };
+
+  const [isVisible, setIsVisible] = React.useState(false);
+  const openDrawer = React.useCallback(() => setIsVisible(true), []);
+  const closeDrawer = React.useCallback(() => setIsVisible(false), []);
 
   return useObserver(() => (
     <>
@@ -83,6 +94,21 @@ const SamplePrevArrow = () => {
         </Slider>
       </div>
 
+      <div class="fixed bottom-0 right-0 mr-5 mb-20">
+        <Fab size="small" color="black" aria-label="add" onClick={openDrawer}>
+          <AddIcon />
+        </Fab>
+      </div>
+
+      <Drawer
+        duration={320}
+        hideScrollbars={true}
+        onClose={closeDrawer}
+        isVisible={isVisible}
+      >
+        <Others />
+      </Drawer>
+      {/*<DynamicStoriesWithNoSSR />*/}
     </>
   ));
 }
