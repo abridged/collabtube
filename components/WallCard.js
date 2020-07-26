@@ -13,6 +13,8 @@ import IconButton from "@material-ui/core/IconButton";
 // import ReactPlayer from 'react-player'
 import Router from "next/router";
 
+// Considering replacing with FeedCard.js due to heavy reliance on inflexible MUI components
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
@@ -47,10 +49,14 @@ export default function WallCard({ file }) {
     Router.push("/player");
   };
 
+  // Card styles removed
+
+  // className={classes.root}
+  // style={{ height: "70vh", width: "70vw" }}
+
   return (
     <Card
-      className={classes.root}
-      style={{ height: "70vh", width: "70vw" }}
+
       className="mx-4"
     >
       <CardActionArea>

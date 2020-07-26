@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { inject, observer, useObserver } from "mobx-react";
 import Clock from "./Clock";
-import { Button } from "@material-ui/core";
 import WallCard from "./WallCard";
 import SortBy from "./SortBy";
-import Flickity from "react-flickity-component";
 
-// import Glider, {GliderMethods} from 'react-glider'
+import TestCard from "./TestCard";
+import FeedCard from "./FeedCard";
+import Slider from "react-slick";
 
 function mf(i) {
   const file = "b";
@@ -17,20 +17,56 @@ function mf(i) {
 }
 
 const init = {
-  feed: new Array(5).fill(0).map((x, i) => mf(i)),
+  feed: new Array(6).fill(0).map((x, i) => mf(i)),
 };
 
-const flickityOptions = {
-  initialIndex: 0,
-};
-
-const DynamicStoriesWithNoSSR = dynamic(() => import("./Stories"), {
+const DynamicStoriesWithNoSSR = dynamic(() => import("./StoryFeed"), {
   ssr: false,
 });
 
 // @inject('store')
 function Page() {
   const [state, setState] = useState(init);
+  const [sampleData, setSampleData] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://jsonplaceholder.typicode.com/photos?_limit=15`).then(res => res.json()).then(data => {
+      setSampleData(data);
+    })
+  }, []);
+
+  const SampleNextArrow = () => {
+  return (
+    <div
+      className="block bg-gray-300"
+      onClick={(e) => {
+        e.preventDefault()
+        Slider.slickNext()
+      }}
+    />
+  );
+}
+
+const SamplePrevArrow = () => {
+  return (
+    <div
+      style={{ display: "block", background: "red" }}
+      onClick={(e) => {
+        e.preventDefault()
+        Slider.slickPrev()
+      }}
+    />
+  );
+}
+
+  const settings = {
+    infinite: false,
+    speed: 1000,
+    arrows: true,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    className: "z-auto"
+  };
 
   return useObserver(() => (
     <>
@@ -38,15 +74,15 @@ function Page() {
         <title>DFAME</title>
       // TODO: Add tab icon
       </Head>
-      <div className="flex-wrap mx-auth w-full">
-        <Flickity options={flickityOptions} className="overflow-hidden p-5">
-          {state.feed.map((x) => (
-            <WallCard key={x.id} file={x} />
+      <div className="container mx-auto">
+
+        <Slider {...settings}>
+          {sampleData.map(data => (
+            <TestCard key={data.id} id={data.id} name={data.title} url={data.url} />
           ))}
-        </Flickity>
+        </Slider>
       </div>
 
-      {/*<DynamicStoriesWithNoSSR />*/}
     </>
   ));
 }

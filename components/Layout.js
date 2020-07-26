@@ -76,15 +76,15 @@ export default function Layout({ children, url }) {
   // }, [state]);
 
   return (
-    <div ref={element} className="min-h-screen grid grid-rows-2" style={{ gridTemplateRows: 'auto 1fr' }}>
+    <div ref={element} className="min-h-screen grid grid-rows-3" style={{ gridTemplateRows: 'auto 1fr auto' }}>
       <Head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js" defer></script>
       </Head>
-      <div className="flex items-center justify-between">
-        <Icon icon={walletSolid} height="2em" className="ml-6"/>
-        <div className="inline-block font-header text-3xl">DFAME</div>
-        <Icon icon={paperPlane} height="2em" className="mr-6"/>
-      </div>
+      <nav className="flex items-center justify-between px-3 py-2 border-solid border-b-4 border-gray-300">
+          <Icon icon={walletSolid} height="2em" />
+          <div className="inline-block font-header text-3xl">DFAME</div>
+          <Icon icon={paperPlane} height="2em" />
+      </nav>
       <div>
         {children}
       </div>
