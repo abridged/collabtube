@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Page from "../components/Page";
-import { TextField, Slider, Typography, Button } from "@material-ui/core";
+import { TextField, Slider, Typography, Button, Divider } from "@material-ui/core";
 import { addVideo } from "../utils/CTS3";
 import { Alert, AlertTitle } from "@material-ui/lab";
 // import { createGif } from "../utils/GifUtil";
 import LoadingOverlay from '../components/LoadingOverlay';
 
 export default function Other() {
-  const [state, setState] = useState({progress:0});
+  const [state, setState] = useState({ progress: 0 });
   function valuetext(value) {
     return `${value} $TINGLES`;
   }
@@ -30,14 +30,14 @@ export default function Other() {
 
     try {
       setState((x) => ({ ...x, loading: true, progress: 0 }));
-      addVideo(_files.files, onProgress).then(x=> {
+      addVideo(_files.files, onProgress).then(x => {
         // if() setState((x) => ({ ...x, progress: 99 }));
-        setTimeout(_=>{
+        setTimeout(_ => {
           setState((x) => ({ ...x, loading: false }))
           alert('Video uploaded! After processing completes in a few minutes it will be publically available.');
         }, 100);
 
-      }).catch(e=>{
+      }).catch(e => {
         throw new Error(e);
       });
     } catch (e) {
@@ -62,91 +62,93 @@ export default function Other() {
     },
   ];
 
+  const hiddenFileInput = React.useRef(null);
+
+  const handleClick = event => {
+    hiddenFileInput.current.click();
+  };
+
+  const handleChange = event => {
+    const fileUploaded = event.target.files[0];
+    props.handleFile(fileUploaded);
+  };
+
   return (
     <>
-      <h1>Upload</h1>
-      {state.loading && <LoadingOverlay open={state.loading} progress={state.progress} />}
-      <figure className="bg-white bg-opacity-50 rounded-md m-2 p-4">
-        <p>This is the 'upload' page. There's not much here.</p>
-        <br />
+      <form class="w-full max-w-sm justify-center">
+        {state.loading && <LoadingOverlay open={state.loading} progress={state.progress} />}
+        <figure className="bg-white bg-opacity-50 rounded-md m-2 p-4">
+          <br />
 
-        {state.error && (
-          <Alert severity="error">
-            <AlertTitle>Error</AlertTitle>
-            {state.error}
-          </Alert>
-        )}
-        {state.gif && <img src={state.gif} width="200" height="200" />}
+          {state.error && (
+            <Alert severity="error">
+              <AlertTitle>Error</AlertTitle>
+              {state.error}
+            </Alert>
+          )}
+          {state.gif && <img src={state.gif} width="200" height="200" />}
 
-        <TextField id="title" label="Title" />
-        <br />
-        <TextField id="description" label="Description" multiline />
-        <br />
-        <br />
-        <Typography id="discrete-slider-custom" gutterBottom>
-          Token Price
-        </Typography>
-        <Slider
-          defaultValue={1}
-          getAriaValueText={valuetext}
-          aria-labelledby="discrete-slider-custom"
-          step={1}
-          valueLabelDisplay="auto"
-          className="max-w-sm"
-          marks={marks}
-        />
+          <div class="flex justify-center">
+            <hr className="bg-gray-400 h-1 border-transparent w-1/2"></hr>
+          </div>
 
-        <div className="flex mt-8">
-          <div className="upload-btn-wrapper">
-            <button className="btn">Upload Video</button>
+          <div class="my-2">
+            <input class="text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
+              id="videoTitle"
+              type="text"
+              placeholder="Video Title">
+            </input>
+          </div>
+
+          <textarea
+            name="description"
+            placeholder="Add a video description"
+            cols="40"
+            rows="5"
+            class="my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1">
+          </textarea>
+
+          <div>
+            {/*<div className="upload-btn-wrapper">*/}
+            <button onClick={handleClick} class="my-1 bg-white hover:bg-gray-700 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+              <i class="las la-photo-video"></i>
+              <span>Choose a video</span>
+            </button>
             <input
+              style={{
+                display: "none"
+              }}
               id="videoupload"
               type="file"
               name="myfile"
               accept="video/*;capture=camcorder"
+              ref={hiddenFileInput}
+              onChange={handleChange}
             />
           </div>
-        </div>
+          {/*</div>*/}
 
-        <div className="py-2 py-12">
-          <Button
-            onClick={onSubmit}
-            label=""
-            variant="contained"
-            className="text-3xl"
-            color="primary"
-            size="large"
-          >
-            submit
+          {/*<div className="flex mt-8">
+            <div className="upload-btn-wrapper">*/}
+          <button class="my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+            Set Ticket Price</button>
+          {/*</div>
+          </div>*/}
+
+          {/*<div className="py-2 py-12">
+            <Button class="shadow bg-black-500 hover: bg-black-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+              onClick={onSubmit}
+              label=""
+              variant="contained"
+              className="text-3xl"
+              color="primary"
+              size="large"
+            >
+              submit
           </Button>
-        </div>
-      </figure>
-      <style jsx>{`
-        .upload-btn-wrapper {
-          position: relative;
-          overflow: hidden;
-          display: inline-block;
-          margin-right: 1rem;
-        }
-
-        .btn {
-          border: 2px solid gray;
-          color: gray;
-          background-color: white;
-          padding: 8px 20px;
-          border-radius: 8px;
-          font-size: 20px;
-          font-weight: bold;
-        }
-
-        .upload-btn-wrapper input[type="file"] {
-          font-size: 100px;
-          position: absolute;
-          left: 0;
-          top: 0;
-          opacity: 0;
-        }
-      `}</style>
+          </div>*/}
+        </figure>
+      </form >
     </>
   );
 }
