@@ -9,7 +9,8 @@
     "build:css": "tailwindcss build assets/tailwind.css -o assets/main.css",
     "watch:css": "tailwindcss build assets/tailwind.css -o assets/main.css",
     "deploy": "vercel",
-    "deploy_prod": "vercel --prod"
+    "deploy_prod": "vercel --prod",
+    "test": "jest"
   },
   "dependencies": {
     "3box": "^1.20.1",
@@ -21,6 +22,8 @@
     "aws-sdk": "^2.711.0",
     "ethers": "^5.0.4",
     "flickity": "^2.2.1",
+    "jest": "^26.1.0",
+    "jest-extended": "^0.11.5",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
     "next": "latest",
@@ -37,8 +40,6 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-decorators": "^7.1.0",
-    "@iconify/icons-la": "^1.0.0",
-    "@iconify/react": "^1.1.3",
     "autoprefixer": "^9.8.4"
   }
 }
