@@ -28,6 +28,7 @@
     "mobx-react": "^6.2.2",
     "next": "latest",
     "react": "^16.13.1",
+    "react-bottom-drawer": "^0.0.5",
     "react-dom": "^16.13.1",
     "react-flickity-component": "^3.5.0",
     "react-glider": "^2.0.1",
