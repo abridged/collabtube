@@ -6,7 +6,6 @@ import { inject, observer, useObserver } from "mobx-react";
 import Clock from "./Clock";
 import WallCard from "./WallCard";
 import SortBy from "./SortBy";
-import Flickity from "react-flickity-component";
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Drawer from "react-bottom-drawer";
