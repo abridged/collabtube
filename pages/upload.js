@@ -7,7 +7,7 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 import LoadingOverlay from '../components/LoadingOverlay';
 
 export default function Other() {
-  const [state, setState] = useState({progress:0});
+  const [state, setState] = useState({ progress: 0 });
   function valuetext(value) {
     return `${value} $TINGLES`;
   }
@@ -30,14 +30,14 @@ export default function Other() {
 
     try {
       setState((x) => ({ ...x, loading: true, progress: 0 }));
-      addVideo(_files.files, onProgress).then(x=> {
+      addVideo(_files.files, onProgress).then(x => {
         // if() setState((x) => ({ ...x, progress: 99 }));
-        setTimeout(_=>{
+        setTimeout(_ => {
           setState((x) => ({ ...x, loading: false }))
           alert('Video uploaded! After processing completes in a few minutes it will be publically available.');
         }, 100);
 
-      }).catch(e=>{
+      }).catch(e => {
         throw new Error(e);
       });
     } catch (e) {
@@ -64,12 +64,8 @@ export default function Other() {
 
   return (
     <>
-      <h1>Upload</h1>
       {state.loading && <LoadingOverlay open={state.loading} progress={state.progress} />}
       <figure className="bg-white bg-opacity-50 rounded-md m-2 p-4">
-        <p>This is the 'upload' page. There's not much here.</p>
-        <br />
-
         {state.error && (
           <Alert severity="error">
             <AlertTitle>Error</AlertTitle>
