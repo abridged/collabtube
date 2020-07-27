@@ -1,6 +1,8 @@
 import React from "react";
 import Stories from 'react-insta-stories';
 
+// Not in use -- Testing react-insta-stories
+
 // Sample images - static
 const stories = [
     'https://www.gstatic.com/webp/gallery3/1.png',
@@ -12,7 +14,7 @@ const stories = [
 export default function StoryFeed() {
     return (
         <>
-            <div>
+            <div className="max-w-sm rounded overflow-hidden shadow-lg">
                 <Stories stories={stories} />
             </div>
         </>

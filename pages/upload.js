@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Page from "../components/Page";
-import { TextField, Slider, Typography, Button, Divider } from "@material-ui/core";
+import { TextField, Slider, Typography, Button } from "@material-ui/core";
 import { addVideo } from "../utils/CTS3";
 import { Alert, AlertTitle } from "@material-ui/lab";
 // import { createGif } from "../utils/GifUtil";
@@ -62,6 +62,7 @@ export default function Other() {
     },
   ];
 
+
   const hiddenFileInput = React.useRef(null);
 
   const handleClick = event => {
@@ -75,80 +76,102 @@ export default function Other() {
 
   return (
     <>
-      <form class="w-full max-w-sm justify-center">
-        {state.loading && <LoadingOverlay open={state.loading} progress={state.progress} />}
-        <figure className="bg-white bg-opacity-50 rounded-md m-2 p-4">
-          <br />
+      {state.loading && <LoadingOverlay open={state.loading} progress={state.progress} />}
+      <figure className="bg-white bg-opacity-50 rounded-md m-2 p-4">
+        {state.error && (
+          <Alert severity="error">
+            <AlertTitle>Error</AlertTitle>
+            {state.error}
+          </Alert>
+        )}
+        {state.gif && <img src={state.gif} width="200" height="200" />}
 
-          {state.error && (
-            <Alert severity="error">
-              <AlertTitle>Error</AlertTitle>
-              {state.error}
-            </Alert>
-          )}
-          {state.gif && <img src={state.gif} width="200" height="200" />}
+        <div class="flex justify-center">
+          <hr className="bg-gray-400 h-1 border-transparent w-1/2"></hr>
+        </div>
 
-          <div class="flex justify-center">
-            <hr className="bg-gray-400 h-1 border-transparent w-1/2"></hr>
-          </div>
+        <div class="my-2">
+          <input class="text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
+            id="videoTitle"
+            type="text"
+            placeholder="Video Title">
+          </input>
+        </div>
 
-          <div class="my-2">
-            <input class="text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
-              id="videoTitle"
-              type="text"
-              placeholder="Video Title">
-            </input>
-          </div>
+        <textarea
+          name="description"
+          placeholder="Add a video description"
+          cols="40"
+          rows="5"
+          class="my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1">
+        </textarea>
 
-          <textarea
-            name="description"
-            placeholder="Add a video description"
-            cols="40"
-            rows="5"
-            class="my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1">
-          </textarea>
+        <div>
+          {/*<div className="upload-btn-wrapper">*/}
+          <button onClick={handleClick} class="my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+            <i class="las la-photo-video"></i>
+            <span>Choose a video</span>
+          </button>
+          <input
+            style={{
+              display: "none"
+            }}
+            id="videoupload"
+            type="file"
+            name="myfile"
+            accept="video/*;capture=camcorder"
+            ref={hiddenFileInput}
+            onChange={handleChange}
+          />
+        </div>
+        {/*</div>*/}
 
-          <div>
-            {/*<div className="upload-btn-wrapper">*/}
-            <button onClick={handleClick} class="my-1 bg-white hover:bg-gray-700 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
-              <i class="las la-photo-video"></i>
-              <span>Choose a video</span>
-            </button>
-            <input
-              style={{
-                display: "none"
-              }}
-              id="videoupload"
-              type="file"
-              name="myfile"
-              accept="video/*;capture=camcorder"
-              ref={hiddenFileInput}
-              onChange={handleChange}
-            />
-          </div>
-          {/*</div>*/}
-
-          {/*<div className="flex mt-8">
+        {/*<div className="flex mt-8">
             <div className="upload-btn-wrapper">*/}
-          <button class="my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
-            Set Ticket Price</button>
-          {/*</div>
+        <button class="my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+          Set Ticket Price</button>
+        {/*</div>
           </div>*/}
 
-          {/*<div className="py-2 py-12">
-            <Button class="shadow bg-black-500 hover: bg-black-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-              onClick={onSubmit}
-              label=""
-              variant="contained"
-              className="text-3xl"
-              color="primary"
-              size="large"
-            >
-              submit
+        <div className="py-2 py-12">
+          <Button
+            onClick={onSubmit}
+            label=""
+            variant="contained"
+            className="text-3xl"
+            color="primary"
+            size="large"
+          >
+            submit
           </Button>
-          </div>*/}
-        </figure>
-      </form >
+        </div>
+      </figure>
+      <style jsx>{`
+        .upload-btn-wrapper {
+          position: relative;
+          overflow: hidden;
+          display: inline-block;
+          margin-right: 1rem;
+        }
+
+        .btn {
+          border: 2px solid gray;
+          color: gray;
+          background-color: white;
+          padding: 8px 20px;
+          border-radius: 8px;
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        .upload-btn-wrapper input[type="file"] {
+          font-size: 100px;
+          position: absolute;
+          left: 0;
+          top: 0;
+          opacity: 0;
+        }
+      `}</style>
     </>
   );
 }
