@@ -132,19 +132,6 @@ export default function Other() {
           Set Ticket Price</button>
         {/*</div>
           </div>*/}
-
-        <div className="py-2 py-12">
-          <Button
-            onClick={onSubmit}
-            label=""
-            variant="contained"
-            className="text-3xl"
-            color="primary"
-            size="large"
-          >
-            submit
-          </Button>
-        </div>
       </figure>
       <style jsx>{`
         .upload-btn-wrapper {
