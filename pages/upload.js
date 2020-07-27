@@ -62,6 +62,18 @@ export default function Other() {
     },
   ];
 
+
+  const hiddenFileInput = React.useRef(null);
+
+  const handleClick = event => {
+    hiddenFileInput.current.click();
+  };
+
+  const handleChange = event => {
+    const fileUploaded = event.target.files[0];
+    props.handleFile(fileUploaded);
+  };
+
   return (
     <>
       {state.loading && <LoadingOverlay open={state.loading} progress={state.progress} />}
@@ -74,48 +86,52 @@ export default function Other() {
         )}
         {state.gif && <img src={state.gif} width="200" height="200" />}
 
-        <TextField id="title" label="Title" />
-        <br />
-        <TextField id="description" label="Description" multiline />
-        <br />
-        <br />
-        <Typography id="discrete-slider-custom" gutterBottom>
-          Token Price
-        </Typography>
-        <Slider
-          defaultValue={1}
-          getAriaValueText={valuetext}
-          aria-labelledby="discrete-slider-custom"
-          step={1}
-          valueLabelDisplay="auto"
-          className="max-w-sm"
-          marks={marks}
-        />
-
-        <div className="flex mt-8">
-          <div className="upload-btn-wrapper">
-            <button className="btn">Upload Video</button>
-            <input
-              id="videoupload"
-              type="file"
-              name="myfile"
-              accept="video/*;capture=camcorder"
-            />
-          </div>
+        <div class="flex justify-center">
+          <hr className="bg-gray-400 h-1 border-transparent w-1/2"></hr>
         </div>
 
-        <div className="py-2 py-12">
-          <Button
-            onClick={onSubmit}
-            label=""
-            variant="contained"
-            className="text-3xl"
-            color="primary"
-            size="large"
-          >
-            submit
-          </Button>
+        <div class="my-2">
+          <input class="text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
+            id="videoTitle"
+            type="text"
+            placeholder="Video Title">
+          </input>
         </div>
+
+        <textarea
+          name="description"
+          placeholder="Add a video description"
+          cols="40"
+          rows="5"
+          class="my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1">
+        </textarea>
+
+        <div>
+          {/*<div className="upload-btn-wrapper">*/}
+          <button onClick={handleClick} class="my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+            <i class="las la-photo-video"></i>
+            <span>Choose a video</span>
+          </button>
+          <input
+            style={{
+              display: "none"
+            }}
+            id="videoupload"
+            type="file"
+            name="myfile"
+            accept="video/*;capture=camcorder"
+            ref={hiddenFileInput}
+            onChange={handleChange}
+          />
+        </div>
+        {/*</div>*/}
+
+        {/*<div className="flex mt-8">
+            <div className="upload-btn-wrapper">*/}
+        <button class="my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+          Set Ticket Price</button>
+        {/*</div>
+          </div>*/}
       </figure>
       <style jsx>{`
         .upload-btn-wrapper {
