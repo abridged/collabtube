@@ -1,5 +1,6 @@
 import Page from "../components/Page";
 import { useEffect, useState } from "react";
+import * as CT from "../utils/CTS3";
 const Box = require("3box");
 const { Feed } = require("../utils/Feed");
 
@@ -31,7 +32,10 @@ export default function Index() {
   }
 
   useEffect(() => {
-    getProfile();
+    CT.getVideos((x) => {
+      console.log("videos out:", x);
+    });
+    // getProfile();
   }, []);
 
   return <div>This is a test</div>;
