@@ -12,6 +12,9 @@
     "deploy_prod": "vercel --prod",
     "test": "jest"
   },
+  "resolutions": {
+    "webpack": "^5.0.0-beta.22"
+  },
   "dependencies": {
     "3box": "^1.20.1",
     "3box-profile-edit-react": "^0.0.9",
@@ -25,12 +28,12 @@
     "jest-extended": "^0.11.5",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
-    "next": "latest",
+    "next": "^9.5.0",
     "react": "^16.13.1",
-    "react-bottom-drawer": "^0.0.5",
     "react-dom": "^16.13.1",
     "react-glider": "^2.0.1",
     "react-insta-stories": "^2.0.4",
+    "react-player": "^2.6.0",
     "react-script-hook": "^1.1.1",
     "react-slick": "^0.27.0",
     "slick-carousel": "^1.8.1",

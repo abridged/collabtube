@@ -9,8 +9,8 @@ import SortBy from "./SortBy";
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
+import Others from "../pages/upload";
 import TestCard from "./TestCard";
-import FeedCard from "./FeedCard";
 import Slider from "react-slick";
 
 function mf(i) {
@@ -22,6 +22,7 @@ const init = {
   feed: new Array(6).fill(0).map((x, i) => mf(i)),
 };
 
+// Not currently in use
 const DynamicStoriesWithNoSSR = dynamic(() => import("./StoryFeed"), {
   ssr: false,
 });
@@ -39,30 +40,6 @@ function Page() {
     })
   }, []);
 
-  const SampleNextArrow = () => {
-    return (
-      <div
-        className="block bg-gray-300"
-        onClick={(e) => {
-          e.preventDefault()
-          Slider.slickNext()
-        }}
-      />
-    );
-  }
-
-  const SamplePrevArrow = () => {
-    return (
-      <div
-        style={{ display: "block", background: "red" }}
-        onClick={(e) => {
-          e.preventDefault()
-          Slider.slickPrev()
-        }}
-      />
-    );
-  }
-
   const settings = {
     infinite: false,
     speed: 1000,
@@ -70,11 +47,14 @@ function Page() {
     slidesToShow: 4,
     slidesToScroll: 4,
     className: "z-auto"
+
   };
 
-  const [isVisible, setIsVisible] = React.useState(false);
-  const openDrawer = React.useCallback(() => setIsVisible(true), []);
-  const closeDrawer = React.useCallback(() => setIsVisible(false), []);
+  // Logic could be recycled for different bottom drawer solution.
+
+  // const [isVisible, setIsVisible] = React.useState(false);
+  // const openDrawer = React.useCallback(() => setIsVisible(true), []);
+  // const closeDrawer = React.useCallback(() => setIsVisible(false), []);
 
   return useObserver(() => (
     <>
@@ -91,11 +71,16 @@ function Page() {
         </Slider>
       </div>
 
+      {/*Should be replaced with Iconify icon.
+
       <div class="fixed bottom-0 right-0 mr-5 mb-20">
         <Fab size="small" color="black" aria-label="add" onClick={openDrawer}>
           <AddIcon />
         </Fab>
       </div>
+      </div>*/}
+
+
       {/*<DynamicStoriesWithNoSSR />*/}
     </>
   ));

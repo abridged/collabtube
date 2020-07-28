@@ -63,19 +63,35 @@ export default function Other() {
     },
   ];
 
-  const FileUploader = props => {
-    const hiddenFileInput = React.useRef(null);
+  // These variables can't be referenced/identified by the functions being rendered below because they are trapped inside FileUploader's local scope. I broke them out just so the page would work, but this may not be optimal.
 
-    const handleClick = event => {
-      hiddenFileInput.current.click();
-      this.setState({ value: event.target.value });
-    };
+  const hiddenFileInput = React.useRef(null);
 
-    const handleChange = event => {
-      const fileUploaded = event.target.files[0];
-      props.handleFile(fileUploaded);
-    };
-  }
+  const handleClick = event => {
+    hiddenFileInput.current.click();
+  };
+
+  const handleChange = event => {
+    const fileUploaded = event.target.files[0];
+    props.handleFile(fileUploaded);
+  };
+
+  // The structure of FileUploader breaks the rules of hooks and can result in the error referenced here: https://reactjs.org/warnings/invalid-hook-call-warning.html
+
+  // TL;DR: The solution is to not include hooks like useRed inside event handlers. The #2 reason listed in the above mentioned documentation.
+
+  // const FileUploader = props => {
+  //   const hiddenFileInput = React.useRef(null);
+  //
+  //   const handleClick = event => {
+  //     hiddenFileInput.current.click();
+  //   };
+  //
+  //   const handleChange = event => {
+  //     const fileUploaded = event.target.files[0];
+  //     props.handleFile(fileUploaded);
+  //   };
+  // }
 
   return (
     <>
@@ -89,12 +105,12 @@ export default function Other() {
         )}
         {state.gif && <img src={state.gif} width="200" height="200" />}
 
-        <div class="flex justify-center">
+        <div className="flex justify-center">
           <hr className="bg-gray-400 h-1 border-transparent w-1/2"></hr>
         </div>
 
-        <div class="my-2">
-          <input class="text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
+        <div className="my-2">
+          <input className="text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
             id="videoTitle"
             type="text"
             placeholder="Video Title">
@@ -106,14 +122,13 @@ export default function Other() {
           placeholder="Add a video description"
           cols="40"
           rows="5"
-          class="my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1">
+          className="my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1">
         </textarea>
 
         <div>
           {/*<div className="upload-btn-wrapper">*/}
-          <button
-            class="my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
-            <i class="las la-photo-video"></i>
+          <button onClick={handleClick} className="my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+            <i className="las la-photo-video"></i>
             <span>Choose a video</span>
           </button>
           <input
@@ -129,7 +144,7 @@ export default function Other() {
         {/*</div>*/}
 
         <Link href="/setTicket">
-          <button class="my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+          <button className="my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
             Set Ticket Price</button>
         </Link>
 
