@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 export default function TestCard({ id, name, url }) {
 
-// Sample file retrieval logic
+  // Sample file retrieval logic
 
   // const [images, setImages] = useState([]);
   // const [files, setFiles] = useState([]);
@@ -24,9 +24,9 @@ export default function TestCard({ id, name, url }) {
       <img src={`https://source.unsplash.com/random/${id}`} className="w-full h-screen" />
 
       <div className="absolute bottom-0 left-0 px-6 py-4">
-          <div className="font-bold text-xl mb-2 text-gray-500">{name}</div>
-          <p className="text-sm text-gray-400">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+        <div className="font-bold text-xl mb-2 text-gray-500">{name}</div>
+        <p className="text-sm text-gray-400">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
           </p>
         <div className="flex justify-between items-center py-4">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full mr-2">

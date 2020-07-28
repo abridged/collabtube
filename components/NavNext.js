@@ -4,11 +4,13 @@ import Link from 'next/link'
 export default function BottomNavigation() {
 
     return (
-        <div class="w-full h-16 flex">
-            <section id="bottom-navigation" class="block fixed inset-x-0 bottom-0 z-10 bg-white shadow">
-                <div id="tabs" class="flex justify-between">
+        <footer
+            class="fixed h-16 bg-gray-200 w-full bottom-0 flex items-center justify-center"
+        >
+            <div class="flex justify-center w-full grid grid-cols-3 divide-x divide-gray-400">
+                <div class="justify-center">
                     <Link href="/">
-                        <button>
+                        <button class="w-full">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 class="w-1/3 h-16 focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
                                 aria-hidden="true"
@@ -19,9 +21,10 @@ export default function BottomNavigation() {
                                     fill="black" /><rect x="0" y="0" width="512" height="512" fill="rgba(0, 0, 0, 0)" /></svg>
                         </button>
                     </Link >
-
+                </div>
+                <div class="justify-center">
                     <Link href="/upload">
-                        <button>
+                        <button class="w-full">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 class="w-1/3 h-16 focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
                                 aria-hidden="true"
@@ -31,9 +34,11 @@ export default function BottomNavigation() {
                                 <path d="M11 15h2V9h3l-4-5l-4 5h3z" fill="black" /><path d="M20 18H4v-7H2v7c0 1.103.897 2 2 2h16c1.103 0 2-.897 2-2v-7h-2v7z" fill="#626262" /><rect x="0" y="0" width="24" height="24" fill="rgba(0, 0, 0, 0)" /></svg>
                         </button>
                     </Link >
+                </div>
 
+                <div class="justify-center">
                     <Link href="/profile">
-                        <button>
+                        <button class="w-full">
                             <svg xmlns="http://www.w3.org/2000/svg"
                                 class="w-1/3 h-16 focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
                                 aria-hidden="true"
@@ -45,7 +50,7 @@ export default function BottomNavigation() {
                         </button>
                     </Link >
                 </div>
-            </section>
-        </div >
+            </div>
+        </footer>
     )
 }
