@@ -63,6 +63,19 @@ export default function Other() {
     },
   ];
 
+  // These variables can't be referenced/identified by the functions below because they are trapped inside FileUploader's local scope. I broke them out just so the page would work, but this may not be optimal.
+
+  const hiddenFileInput = React.useRef(null);
+
+  const handleClick = event => {
+    hiddenFileInput.current.click();
+  };
+
+  const handleChange = event => {
+    const fileUploaded = event.target.files[0];
+    props.handleFile(fileUploaded);
+  };
+
   const FileUploader = props => {
     const hiddenFileInput = React.useRef(null);
 
@@ -88,7 +101,7 @@ export default function Other() {
         )}
         {state.gif && <img src={state.gif} width="200" height="200" />}
 
-        <div class="flex justify-center">
+        <div className="flex justify-center">
           <hr className="bg-gray-400 h-1 border-transparent w-1/2"></hr>
         </div>
 
