@@ -105,8 +105,8 @@ export default function Other() {
           <hr className="bg-gray-400 h-1 border-transparent w-1/2"></hr>
         </div>
 
-        <div class="my-2">
-          <input class="text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
+        <div className="my-2">
+          <input className="text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
             id="videoTitle"
             type="text"
             placeholder="Video Title">
@@ -118,13 +118,13 @@ export default function Other() {
           placeholder="Add a video description"
           cols="40"
           rows="5"
-          class="my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1">
+          className="my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1">
         </textarea>
 
         <div>
           {/*<div className="upload-btn-wrapper">*/}
-          <button onClick={handleClick} class="my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
-            <i class="las la-photo-video"></i>
+          <button onClick={handleClick} className="my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+            <i className="las la-photo-video"></i>
             <span>Choose a video</span>
           </button>
           <input
@@ -142,7 +142,7 @@ export default function Other() {
         {/*</div>*/}
 
         <Link href="/setTicket">
-          <button class="my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+          <button className="my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
             Set Ticket Price</button>
         </Link>
 
