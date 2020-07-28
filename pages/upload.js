@@ -63,17 +63,18 @@ export default function Other() {
     },
   ];
 
+  const FileUploader = props => {
+    const hiddenFileInput = React.useRef(null);
 
-  const hiddenFileInput = React.useRef(null);
+    const handleClick = event => {
+      hiddenFileInput.current.click();
+    };
 
-  const handleClick = event => {
-    hiddenFileInput.current.click();
-  };
-
-  const handleChange = event => {
-    const fileUploaded = event.target.files[0];
-    props.handleFile(fileUploaded);
-  };
+    const handleChange = event => {
+      const fileUploaded = event.target.files[0];
+      props.handleFile(fileUploaded);
+    };
+  }
 
   return (
     <>
