@@ -8,8 +8,6 @@ import WallCard from "./WallCard";
 import SortBy from "./SortBy";
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import Drawer from "react-bottom-drawer";
-import Others from "../pages/upload";
 
 import TestCard from "./TestCard";
 import FeedCard from "./FeedCard";
@@ -98,15 +96,6 @@ function Page() {
           <AddIcon />
         </Fab>
       </div>
-
-      <Drawer
-        duration={320}
-        hideScrollbars={true}
-        onClose={closeDrawer}
-        isVisible={isVisible}
-      >
-        <Others />
-      </Drawer>
       {/*<DynamicStoriesWithNoSSR />*/}
     </>
   ));
