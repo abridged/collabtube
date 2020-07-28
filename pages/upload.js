@@ -5,6 +5,7 @@ import { addVideo } from "../utils/CTS3";
 import { Alert, AlertTitle } from "@material-ui/lab";
 // import { createGif } from "../utils/GifUtil";
 import LoadingOverlay from '../components/LoadingOverlay';
+import Link from 'next/link'
 
 export default function Other() {
   const [state, setState] = useState({ progress: 0 });
@@ -62,17 +63,18 @@ export default function Other() {
     },
   ];
 
+  const FileUploader = props => {
+    const hiddenFileInput = React.useRef(null);
 
-  const hiddenFileInput = React.useRef(null);
+    const handleClick = event => {
+      hiddenFileInput.current.click();
+    };
 
-  const handleClick = event => {
-    hiddenFileInput.current.click();
-  };
-
-  const handleChange = event => {
-    const fileUploaded = event.target.files[0];
-    props.handleFile(fileUploaded);
-  };
+    const handleChange = event => {
+      const fileUploaded = event.target.files[0];
+      props.handleFile(fileUploaded);
+    };
+  }
 
   return (
     <>
@@ -126,12 +128,11 @@ export default function Other() {
         </div>
         {/*</div>*/}
 
-        {/*<div className="flex mt-8">
-            <div className="upload-btn-wrapper">*/}
-        <button class="my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
-          Set Ticket Price</button>
-        {/*</div>
-          </div>*/}
+        <Link href="/setTicket">
+          <button class="my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+            Set Ticket Price</button>
+        </Link>
+
       </figure>
       <style jsx>{`
         .upload-btn-wrapper {
