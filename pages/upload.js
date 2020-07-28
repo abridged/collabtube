@@ -63,7 +63,7 @@ export default function Other() {
     },
   ];
 
-  // These variables can't be referenced/identified by the functions below because they are trapped inside FileUploader's local scope. I broke them out just so the page would work, but this may not be optimal.
+  // These variables can't be referenced/identified by the functions being rendered below because they are trapped inside FileUploader's local scope. I broke them out just so the page would work, but this may not be optimal.
 
   const hiddenFileInput = React.useRef(null);
 
@@ -76,18 +76,22 @@ export default function Other() {
     props.handleFile(fileUploaded);
   };
 
-  const FileUploader = props => {
-    const hiddenFileInput = React.useRef(null);
+  // The structure of FileUploader breaks the rules of hooks and can result in the error referenced here: https://reactjs.org/warnings/invalid-hook-call-warning.html
 
-    const handleClick = event => {
-      hiddenFileInput.current.click();
-    };
+  // TL;DR: The solution is to not include hooks like useRed inside event handlers. The #2 reason listed in the above mentioned documentation.
 
-    const handleChange = event => {
-      const fileUploaded = event.target.files[0];
-      props.handleFile(fileUploaded);
-    };
-  }
+  // const FileUploader = props => {
+  //   const hiddenFileInput = React.useRef(null);
+  //
+  //   const handleClick = event => {
+  //     hiddenFileInput.current.click();
+  //   };
+  //
+  //   const handleChange = event => {
+  //     const fileUploaded = event.target.files[0];
+  //     props.handleFile(fileUploaded);
+  //   };
+  // }
 
   return (
     <>
