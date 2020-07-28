@@ -68,6 +68,7 @@ export default function Other() {
 
     const handleClick = event => {
       hiddenFileInput.current.click();
+      this.setState({ value: event.target.value });
     };
 
     const handleChange = event => {
@@ -110,7 +111,8 @@ export default function Other() {
 
         <div>
           {/*<div className="upload-btn-wrapper">*/}
-          <button onClick={handleClick} class="my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+          <button
+            class="my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
             <i class="las la-photo-video"></i>
             <span>Choose a video</span>
           </button>
@@ -122,8 +124,6 @@ export default function Other() {
             type="file"
             name="myfile"
             accept="video/*;capture=camcorder"
-            ref={hiddenFileInput}
-            onChange={handleChange}
           />
         </div>
         {/*</div>*/}
