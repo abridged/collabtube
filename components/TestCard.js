@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import ReactPlayer from 'react-player';
+
 
 export default function TestCard({ id, name, url }) {
 
@@ -20,8 +22,8 @@ export default function TestCard({ id, name, url }) {
 
 
   return (
-    <div className="relative max-w-sm rounded overflow-hidden shadow-xl my-8 mx-4">
-      <img src={`https://source.unsplash.com/random/${id}`} className="w-full h-screen" />
+    <div className="max-w-screen-sm">
+      <img src={`https://source.unsplash.com/random/${id}`}  />
 
       <div className="absolute bottom-0 left-0 px-6 py-4">
         <div className="font-bold text-xl mb-2 text-gray-500">{name}</div>

@@ -41,13 +41,14 @@ function Page() {
   }, []);
 
   const settings = {
-    infinite: false,
-    speed: 1000,
-    arrows: true,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    className: "z-auto"
-
+    className:"flex-1",
+    infinite: true,
+    arrows: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    vertical: true,
+    verticalSwiping: true,
+    swipeToSlide: true,
   };
 
   // Logic could be recycled for different bottom drawer solution.
@@ -62,13 +63,16 @@ function Page() {
         <title>DFAME</title>
       // TODO: Add tab icon
       </Head>
-      <div className="container mx-auto">
+      <div className="flex">
 
-        <Slider {...settings}>
-          {sampleData.map(data => (
-            <TestCard key={data.id} id={data.id} name={data.title} url={data.url} />
-          ))}
-        </Slider>
+
+          <Slider {...settings}>
+            {sampleData.map(data => (
+              <TestCard key={data.id} id={data.id} name={data.title} url={data.url} />
+            ))}
+          </Slider>
+
+
       </div>
 
       {/*Should be replaced with Iconify icon.
