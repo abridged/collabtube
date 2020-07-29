@@ -58,10 +58,10 @@ class App extends React.Component {
         return (
             <div>
                 <div>
-                    <div class="flex justify-center mb-4">
+                    <div className="flex justify-center mb-4">
                         <SelectCurrency currencies={currencies} onSelectCurrency={this.onSelectCurrency} />
                         <input
-                            class="w-30 form-control form-control-lg mx-3 my-1 bg-white hover:bg-gray-100 text-black font-semibold w-1/6 py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
+                            className="w-30 form-control form-control-lg mx-3 my-1 bg-white hover:bg-gray-100 text-black font-semibold w-1/6 py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
                             type="number"
                             value={currencyAval}
                             aria-describedby="basic-addon2"
@@ -71,9 +71,9 @@ class App extends React.Component {
                                 this.onChangeHandler(e, 'A');
                             }} />
                     </div>
-                    <div class="flex justify-left mb-4">
-                        <button class="w-30 justify-center my-1 bg-white hover:bg-gray-400 text-black font-semibold py-2 px-4 border-2 border-gray-400 rounded shadow m-1">United States Dollar</button>
-                        <input class="w-30 form-control form-control-lg mx-3 my-1 bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
+                    <div className="flex justify-left mb-4">
+                        <button className="w-30 justify-center my-1 bg-white hover:bg-gray-400 text-black font-semibold py-2 px-4 border-2 border-gray-400 rounded shadow m-1">United States Dollar</button>
+                        <input className="w-30 form-control form-control-lg mx-3 my-1 bg-white hover:bg-gray-100 text-black font-semibold py-2 px-4 border-2 border-gray-400 rounded shadow m-1"
                             type="number"
                             value={currencyBval}
                             aria-describedby="basic-addon3"
@@ -85,7 +85,7 @@ class App extends React.Component {
                     </div>
                 </div>
                 <div>
-                    <div class="flex justify-center">
+                    <div className="flex justify-center">
                         <p>
                             Exchange Rate {` ${currencyA.sellRate} ${currencyA.code}`} = {`${currencyB.sellRate} ${currencyB.code}`}
                         </p>
