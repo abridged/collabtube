@@ -9,6 +9,7 @@ import SortBy from "./SortBy";
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 
+import VideoData from './videos.json';
 import Others from "../pages/upload";
 import TestCard from "./TestCard";
 import Slider from "react-slick";
@@ -23,11 +24,11 @@ const init = {
 };
 
 // Not currently in use
-const DynamicStoriesWithNoSSR = dynamic(() => import("./StoryFeed"), {
-  ssr: false,
-});
+// const DynamicStoriesWithNoSSR = dynamic(() => import("./StoryFeed"), {
+//   ssr: false,
+// });
 
-
+//<TestCard key={Math.random()} tags={TestAPI.data.tags} title={TestAPI.data.title} video={TestAPI.data.video} />
 
 // @inject('store')
 function Page() {
@@ -41,7 +42,7 @@ function Page() {
   }, []);
 
   const settings = {
-    className:"flex-1",
+    className: "sm:w-full lg:w-4/6 h-full",
     infinite: true,
     arrows: false,
     slidesToShow: 1,
@@ -65,13 +66,15 @@ function Page() {
       </Head>
       <div className="flex">
 
+        <div className="sm:w-0 lg:w-1/6 bg-gray-400"></div>
 
           <Slider {...settings}>
-            {sampleData.map(data => (
-              <TestCard key={data.id} id={data.id} name={data.title} url={data.url} />
-            ))}
+            {VideoData.map((videoDetail, index) => {
+              return <TestCard key={index} tags={videoDetail.tags} title={videoDetail.title} gif={videoDetail.gif} video={videoDetail.video} />
+            })}
           </Slider>
 
+        <div className="sm:w-0 lg:w-1/6 bg-gray-400"></div>
 
       </div>
 

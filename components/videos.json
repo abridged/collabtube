@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Tingles",
+    "gif": "https://collabtube-encoded-east1.s3.amazonaws.com/IMG_3613.gif",
+    "video": "https://collabtube-encoded-east1.s3.amazonaws.com/IMG_3613.m3u8",
+    "tags": ["tingles"]
+  },
+  {
+    "title": "Animal Crossing: New Horizons Summer Update",
+    "gif": "https://source.unsplash.com/random",
+    "video": "https://www.youtube.com/watch?v=InDJvcWtTCw",
+    "tags": ["video games"]
+  },
+  {
+    "title": "ALONDRA MEETS BABY E!! SO CUTE!!",
+    "gif": "https://source.unsplash.com/random",
+    "video": "https://www.youtube.com/watch?v=SVJ0L1_D0xk",
+    "tags": ["reality"]
+  },
+    {
+      "title": "Logic - Aquarius III",
+      "gif": "https://collabtube-encoded-east1.s3.amazonaws.com/IMG_3613.gif",
+      "video": "https://www.youtube.com/watch?v=gfcBswn2nH8",
+      "tags": ["hip-hop"]
+    },
+    {
+      "title": "ASMR NEXT LEVEL for Brain Melting Tingles",
+      "gif": "https://source.unsplash.com/random",
+      "video": "https://www.youtube.com/watch?v=MBRihNZGzA0",
+      "tags": ["ASMR"]
+    },
+    {
+      "title": "Jackboy - Lost Ties (Official Video)",
+      "gif": "https://source.unsplash.com/random",
+      "video": "https://www.youtube.com/watch?v=h_6YfxGYL-g",
+      "tags": ["reveal"]
+    },
+      {
+        "title": "I Surprised Him With His Least Favorite TikToker",
+        "gif": "https://collabtube-encoded-east1.s3.amazonaws.com/IMG_3613.gif",
+        "video": "https://www.youtube.com/watch?v=7u43Zlj9KK8",
+        "tags": ["TikTok"]
+      },
+      {
+        "title": "After We Collided - Official Trailer",
+        "gif": "https://source.unsplash.com/random",
+        "video": "https://www.youtube.com/watch?v=2SvwX3ux_-8",
+        "tags": ["new releases"]
+      },
+      {
+        "title": "How Jaden Smith Chooses a Role - Key & Peele",
+        "gif": "https://source.unsplash.com/random",
+        "video": "https://www.youtube.com/watch?v=4RjWTEqJiMI",
+        "tags": ["comedy"]
+      }
+]

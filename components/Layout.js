@@ -76,20 +76,32 @@ export default function Layout({ children, url }) {
   //   return () => _vanta2.destroy();
   // }, [state]);
 
+  // Previous parent css removed: "grid grid-rows-3" style={{ gridTemplateRows: 'auto 1fr auto' }}
+
   return (
-    <div ref={element} className="min-h-screen grid grid-rows-3" style={{ gridTemplateRows: 'auto 1fr auto' }}>
+    <div ref={element}>
       <Head>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r118/three.min.js" defer></script>
       </Head>
-      <nav className="flex items-center justify-between px-3 py-2 border-solid border-b-4 border-gray-300">
-        <Icon icon={walletSolid} height="2em" />
-        <div className="inline-block font-header text-3xl">DFAME</div>
-        <Icon icon={paperPlane} height="2em" />
-      </nav>
-      <div>
-        {children}
-      </div>
-      <NavNext />
+
+
+
+        <nav className="flex items-center justify-between px-3 py-2 border-solid border-b-4 border-gray-300">
+          <Icon icon={walletSolid} height="2em" />
+          <div className="inline-block font-header text-3xl">DFAME</div>
+          <Icon icon={paperPlane} height="2em" />
+        </nav>
+
+
+        <div className="space-y-6">
+          {children}
+        </div>
+
+        <NavNext />
+
+
+
+
     </div>
   );
 }
