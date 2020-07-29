@@ -13,35 +13,35 @@ function setTicket() {
         <div>
 
 
-            <div class="flex justify-center">
-                <hr class="bg-gray-400 h-1 border-transparent w-1/2 m-8"></hr>
+            <div className="flex justify-center">
+                <hr className="bg-gray-400 h-1 border-transparent w-1/2 m-8"></hr>
             </div>
             <br />
 
-            <div class="flex justify-center">
+            <div className="flex justify-center">
                 {/*Ticket icon*/}
-                <svg class="justify-center align-middle h-12 w-12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
+                <svg className="justify-center align-middle h-12 w-12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 32 32">
                     <path d="M2 7v7h1c1.191 0 2 .809 2 2c0 1.191-.809 2-2 2H2v7h28v-7h-1c-1.191 0-2-.809-2-2c0-1.191.809-2 2-2h1V7zm2 2h24v3.188c-1.715.449-3 1.957-3 3.812c0 1.855 1.285 3.363 3 3.813V23H4v-3.188c1.715-.449 3-1.957 3-3.812c0-1.855-1.285-3.363-3-3.813z" fill="#626262" />
                 </svg>
             </div>
 
-            <div class="justify-center">
-                <div class="flex items-center">
+            <div className="justify-center">
+                <div className="flex items-center">
                 </div>
-                <h1 class="my-3 text-center font-extrabold text-xl text-black text-opacity-100" >
+                <h1 className="my-3 text-center font-extrabold text-xl text-black text-opacity-100" >
                     Set Ticket Price
             </h1>
             </div>
 
-            <div class="mt-10 flex justify-center">
+            <div className="mt-10 flex justify-center">
                 <Converter />
             </div>
 
 
             {/*Checkmark icon*/}
-            <div class="flex justify-center">
+            <div className="flex justify-center">
                 <button>
-                    <svg class="h-12 w-12 my-4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448s448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8l157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z" fill="black" /></svg>
+                    <svg className="h-12 w-12 my-4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448s448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8l157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z" fill="black" /></svg>
                 </button>
             </div>
         </div >
