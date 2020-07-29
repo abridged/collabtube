@@ -5,14 +5,14 @@ export default function BottomNavigation() {
 
     return (
         <footer
-            class="fixed h-16 bg-gray-200 w-full bottom-0 flex items-center justify-center"
+            class="fixed h-12 bg-gray-200 w-full bottom-0 flex items-center justify-center"
         >
             <div class="flex justify-center w-full grid grid-cols-3 divide-x divide-gray-400">
                 <div class="justify-center">
                     <Link href="/">
                         <button class="w-full">
                             <svg xmlns="http://www.w3.org/2000/svg"
-                                class="w-1/3 h-16 focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
+                                class="w-1/3 h-12 focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
                                 aria-hidden="true"
                                 focusable="false"
                                 preserveAspectRatio="xMidYMid meet"
@@ -26,7 +26,7 @@ export default function BottomNavigation() {
                     <Link href="/upload">
                         <button class="w-full">
                             <svg xmlns="http://www.w3.org/2000/svg"
-                                class="w-1/3 h-16 focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
+                                class="w-1/3 h-12 focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
                                 aria-hidden="true"
                                 focusable="false"
                                 preserveAspectRatio="xMidYMid meet"
@@ -40,7 +40,7 @@ export default function BottomNavigation() {
                     <Link href="/profile">
                         <button class="w-full">
                             <svg xmlns="http://www.w3.org/2000/svg"
-                                class="w-1/3 h-16 focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
+                                class="w-1/3 h-12 focus:text-teal-500 hover:text-teal-500 justify-center inline-block text-center pt-2 pb-1"
                                 aria-hidden="true"
                                 focusable="false"
                                 preserveAspectRatio="xMidYMid meet"
