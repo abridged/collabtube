@@ -104,49 +104,50 @@ export default function Other() {
           </Alert>
         )}
         {state.gif && <img src={state.gif} width="200" height="200" />}
+        <div className="w-full">
+          <div className="flex justify-center">
+            <hr className="bg-gray-400 h-1 border-transparent w-1/2"></hr>
+          </div>
 
-        <div className="flex justify-center">
-          <hr className="bg-gray-400 h-1 border-transparent w-1/2"></hr>
+          <div className="my-2">
+            <input className="sm:h-16 text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
+              id="videoTitle"
+              type="text"
+              placeholder="Video Title">
+            </input>
+          </div>
+
+          <textarea
+            name="description"
+            placeholder="Add a video description"
+            cols="40"
+            rows="5"
+            className="sm:h-48 my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1">
+          </textarea>
+
+          <div>
+            {/*<div className="upload-btn-wrapper">*/}
+            <button onClick={handleClick} className="sm:h-16 my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
+              <i className="las la-photo-video"></i>
+              <span>Choose a video</span>
+            </button>
+            <input
+              style={{
+                display: "none"
+              }}
+              id="videoupload"
+              type="file"
+              name="myfile"
+              accept="video/*;capture=camcorder"
+            />
+          </div>
+          {/*</div>*/}
+
+          <Link href="/setTicket">
+            <button className="h-12 my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1 sm:h-16">
+              Set Ticket Price</button>
+          </Link>
         </div>
-
-        <div className="my-2">
-          <input className="text-xl shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-black font-extrabold leading-tight focus:outline-none focus:shadow-outline m-1"
-            id="videoTitle"
-            type="text"
-            placeholder="Video Title">
-          </input>
-        </div>
-
-        <textarea
-          name="description"
-          placeholder="Add a video description"
-          cols="40"
-          rows="5"
-          className="my-2 shadow appearance-none border-2 rounded w-full py-2 px-3 placeholder-gray-600 font-normal leading-tight focus:outline-none focus:shadow-outline m-1">
-        </textarea>
-
-        <div>
-          {/*<div className="upload-btn-wrapper">*/}
-          <button onClick={handleClick} className="my-1 bg-white hover:bg-gray-400 text-black font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
-            <i className="las la-photo-video"></i>
-            <span>Choose a video</span>
-          </button>
-          <input
-            style={{
-              display: "none"
-            }}
-            id="videoupload"
-            type="file"
-            name="myfile"
-            accept="video/*;capture=camcorder"
-          />
-        </div>
-        {/*</div>*/}
-
-        <Link href="/setTicket">
-          <button className="my-1 bg-black hover:bg-gray-700 text-white font-semibold w-full py-2 px-4 border-2 border-gray-400 rounded shadow m-1">
-            Set Ticket Price</button>
-        </Link>
 
       </figure>
       <style jsx>{`
