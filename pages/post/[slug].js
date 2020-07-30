@@ -8,11 +8,11 @@ import SortBy from "../../components/SortBy";
 import Head from "next/head";
 import useScript from "react-script-hook";
 import { useRouter } from "next/router";
-
+import { Icon, InlineIcon } from "@iconify/react";
+import openPadlock from "@iconify/icons-ps/open-padlock";
 import * as Server from "../../utils/CTS3";
 
 const init = {
-  file: "",
   feed: [{ file: "small", refresh: 0 }],
 };
 
@@ -20,7 +20,7 @@ const init = {
 function Wall() {
   const [state, setState] = useState(init);
   const router = useRouter();
-  const { slug } = router.query;
+  const slug = router.query.slug;
 
   const videoRef = useRef();
 
@@ -64,11 +64,11 @@ function Wall() {
     [state]
   );
 
-  // const name = "small";
-  // const file = `https://collabtube-encoded-east1.s3.amazonaws.com/${name}.m3u8`;
+  const name = "small";
+  const file = `https://collabtube-encoded-east1.s3.amazonaws.com/${name}.m3u8`;
 
   return useObserver(() => (
-    <section className="text-center mx-auth w-full">
+    <>
       <Head>
         <title>Player</title>
         <link
@@ -76,21 +76,40 @@ function Wall() {
           rel="stylesheet"
         />
       </Head>
+      <div className="text-center">
+        <h1 className="block text-x1 font-bold text-center underline py-4">
+          CONGRATULATIONS!
+        </h1>
+        <h3 className="block text-x1 text-center font-semibold text-gray-800 pb-4">
+          You've Unlocked Exclusive Content Below!
+        </h3>
+        <h3 className="block text-x1 text-center font-semibold text-gray-800 pb-4">
+          Click Below to Claim.
+        </h3>
 
-      <h1 className="text-x1 text-center">TITLE</h1>
-      <div id="video" className="w-full">
-        <video
-          ref={videoRef}
-          id="my-video"
-          className="video-js mx-auto"
-          controls
-          preload="auto"
-        >
-          <source src={state.file} type="application/x-mpegURL" />
-        </video>
+        <button class="bg-transparent hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center mb-4">
+          <Icon icon={openPadlock} width="80" height="80" />
+          <span className="block">Press to Play</span>
+        </button>
       </div>
-    </section>
+
+      <div>
+        <div id="video" className="w-full">
+          <video
+            ref={videoRef}
+            id="my-video"
+            className="video-js mx-auto"
+            controls
+            preload="auto"
+          >
+            <source src={state.file} type="application/x-mpegURL" />
+          </video>
+        </div>
+      </div>
+    </>
   ));
 }
 
 export default Wall;
+
+//<div className="flex justify-center pb-4">

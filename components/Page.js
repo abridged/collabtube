@@ -6,10 +6,10 @@ import { inject, observer, useObserver } from "mobx-react";
 import Clock from "./Clock";
 import WallCard from "./WallCard";
 import SortBy from "./SortBy";
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import Fab from "@material-ui/core/Fab";
+import AddIcon from "@material-ui/icons/Add";
 
-import VideoData from './videos.json';
+import VideoData from "./videos.json";
 import Others from "../pages/upload";
 import TestCard from "./TestCard";
 import Slider from "react-slick";
@@ -36,9 +36,11 @@ function Page() {
   const [sampleData, setSampleData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://jsonplaceholder.typicode.com/photos?_limit=15`).then(res => res.json()).then(data => {
-      setSampleData(data);
-    })
+    fetch(`http://jsonplaceholder.typicode.com/photos?_limit=15`)
+      .then((res) => res.json())
+      .then((data) => {
+        setSampleData(data);
+      });
   }, []);
 
   const settings = {
@@ -62,20 +64,27 @@ function Page() {
     <>
       <Head>
         <title>DFAME</title>
-      // TODO: Add tab icon
+        // TODO: Add tab icon
       </Head>
       <div className="flex">
-
         <div className="sm:w-0 lg:w-1/6 bg-gray-400"></div>
 
-          <Slider {...settings}>
-            {VideoData.map((videoDetail, index) => {
-              return <TestCard key={index} tags={videoDetail.tags} title={videoDetail.title} gif={videoDetail.gif} video={videoDetail.video} />
-            })}
-          </Slider>
+        <Slider {...settings}>
+          {VideoData.map((videoDetail, index) => {
+            return (
+              <TestCard
+                key={index}
+                tags={videoDetail.tags}
+                title={videoDetail.title}
+                gif={videoDetail.gif}
+                video={videoDetail.video}
+                id={VideoData.id}
+              />
+            );
+          })}
+        </Slider>
 
         <div className="sm:w-0 lg:w-1/6 bg-gray-400"></div>
-
       </div>
 
       {/*Should be replaced with Iconify icon.
@@ -86,7 +95,6 @@ function Page() {
         </Fab>
       </div>
       </div>*/}
-
 
       {/*<DynamicStoriesWithNoSSR />*/}
     </>

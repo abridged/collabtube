@@ -46,7 +46,7 @@ export default function WallCard({ file }) {
   }
 
   const onClick = () => {
-    Router.push("/player");
+    Router.push("/post/[slug]", `/post/${file.id}`);
   };
 
   // Card styles removed
@@ -55,10 +55,7 @@ export default function WallCard({ file }) {
   // style={{ height: "70vh", width: "70vw" }}
 
   return (
-    <Card
-
-      className="mx-4"
-    >
+    <Card className="mx-4">
       <CardActionArea>
         <CardMedia component="img" alt={title} image={url} title={title} />
         <CardContent>
