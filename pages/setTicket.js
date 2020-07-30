@@ -4,6 +4,7 @@ import { TextField, Slider, Typography, Button } from "@material-ui/core";
 import { Icon, InlineIcon } from '@iconify/react';
 import data from "../data/Data"
 import Converter from "../components/tokenConverter2"
+import Link from 'next/link'
 
 import LoadingOverlay from '../components/LoadingOverlay';
 
@@ -38,11 +39,14 @@ function setTicket() {
 
 
                 {/*Checkmark icon*/}
-                <div className="flex justify-center">
-                    <button>
-                        <svg className="h-12 w-12 my-4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448s448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8l157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z" fill="black" /></svg>
-                    </button>
-                </div>
+                <Link href="/player">
+                    <div className="flex justify-center">
+                        <button>
+                            <svg className="h-12 w-12 my-4" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid meet" viewBox="0 0 1024 1024"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448s448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 0 1-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8l157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z" fill="black" /></svg>
+                        </button>
+
+                    </div>
+                </Link>
             </div >
         </div>
     )
