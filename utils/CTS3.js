@@ -35,6 +35,20 @@ async function setup() {
   );
 }
 
+export async function getVideo(id) {
+  return _getVideo(id);
+}
+
+function _getVideo(id) {
+  return {
+    gif: `https://collabtube-encoded-east1.s3.amazonaws.com/g_${id}.gif`,
+    video: `https://collabtube-encoded-east1.s3.amazonaws.com/v_${id}.m3u8`,
+    id: id,
+    title: id,
+    tags: [id],
+  };
+}
+
 export async function getVideos(onVideos) {
   await setup();
 
@@ -64,15 +78,10 @@ export async function getVideos(onVideos) {
     }
     // console.log(data.Contents);
 
-    videos = data.Contents.map((x) => ({
-      gif: `https://collabtube-encoded-east1.s3.amazonaws.com/${x.Key}`,
-      video: `https://collabtube-encoded-east1.s3.amazonaws.com/${x.Key}`.replace(
-        ".gif",
-        ".m3u8"
-      ),
-      title: x.Key.replace(".gif", ""),
-      tags: [x.Key.replace(".gif", "")],
-    }));
+    videos = data.Contents.map((x) => {
+      const id = x.Key.replace(".gif", "").replace("g_", "");
+      return _getVideo(id);
+    });
     onVideos(videos);
   });
 }
